@@ -13,19 +13,7 @@ project ("dfsForCPP")
 
 include("D://vcpkg//vcpkg//scripts//buildsystems//vcpkg.cmake")
 
-find_package(gRPC CONFIG REQUIRED)
-
-find_package(protobuf CONFIG REQUIRED)
-
-add_executable (namenode "src/Server/RPCServer.cpp" "proto/helloworld.grpc.pb.cc" "proto/helloworld.pb.cc")
-
-add_executable (client "src/client.cpp" "proto/helloworld.grpc.pb.cc" "proto/helloworld.pb.cc")
-
-target_link_libraries(namenode PRIVATE gRPC::grpc++ gRPC::grpc++_reflection gRPC::gpr gRPC::grpc gRPC::grpc++ protobuf::libprotoc protobuf::libprotobuf protobuf::libprotobuf-lite)
-
-target_link_libraries(client PRIVATE gRPC::grpc++ gRPC::grpc++_reflection gRPC::gpr gRPC::grpc gRPC::grpc++ protobuf::libprotoc protobuf::libprotobuf protobuf::libprotobuf-lite)
-
 # 将源代码添加到此项目的可执行文件。
-add_executable (dfsForCPP "dfsForCPP.cpp" "dfsForCPP.h")
+add_executable (dfsForCPP "dfsForCPP.cpp" "dfsForCPP.h"   "common/Block/BlockInfo.cpp" "common/Block/BlockInfo.h" "common/Datanode/DatanodeID.cpp" "common/Datanode/DatanodeID.h" "common/Datanode/DatanodeInfo.cpp" "common/Datanode/DatanodeInfo.h")
 
 # TODO: 如有需要，请添加测试并安装目标。

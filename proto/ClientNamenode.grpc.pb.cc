@@ -19,19 +19,20 @@
 #include <grpcpp/server_context.h>
 #include <grpcpp/impl/service_type.h>
 #include <grpcpp/support/sync_stream.h>
+namespace ClientNamenode {
 
 static const char* ClientService_method_names[] = {
-  "/ClientService/GetBlockLocation",
-  "/ClientService/GetServerDefaults",
-  "/ClientService/Create",
-  "/ClientService/Append",
-  "/ClientService/Rename",
-  "/ClientService/Delete",
-  "/ClientService/SetPermission",
-  "/ClientService/SetOwner",
-  "/ClientService/mkdir",
-  "/ClientService/Listing",
-  "/ClientService/RenewLease",
+  "/ClientNamenode.ClientService/GetBlockLocation",
+  "/ClientNamenode.ClientService/GetServerDefaults",
+  "/ClientNamenode.ClientService/Create",
+  "/ClientNamenode.ClientService/Append",
+  "/ClientNamenode.ClientService/Rename",
+  "/ClientNamenode.ClientService/Delete",
+  "/ClientNamenode.ClientService/SetPermission",
+  "/ClientNamenode.ClientService/SetOwner",
+  "/ClientNamenode.ClientService/mkdir",
+  "/ClientNamenode.ClientService/Listing",
+  "/ClientNamenode.ClientService/RenewLease",
 };
 
 std::unique_ptr< ClientService::Stub> ClientService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -54,253 +55,253 @@ ClientService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chan
   , rpcmethod_RenewLease_(ClientService_method_names[10], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status ClientService::Stub::GetBlockLocation(::grpc::ClientContext* context, const ::GetBlockLocationsRequest& request, ::GetBlockLocationResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::GetBlockLocationsRequest, ::GetBlockLocationResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetBlockLocation_, context, request, response);
+::grpc::Status ClientService::Stub::GetBlockLocation(::grpc::ClientContext* context, const ::ClientNamenode::GetBlockLocationsRequest& request, ::ClientNamenode::GetBlockLocationResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ClientNamenode::GetBlockLocationsRequest, ::ClientNamenode::GetBlockLocationResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetBlockLocation_, context, request, response);
 }
 
-void ClientService::Stub::async::GetBlockLocation(::grpc::ClientContext* context, const ::GetBlockLocationsRequest* request, ::GetBlockLocationResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::GetBlockLocationsRequest, ::GetBlockLocationResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetBlockLocation_, context, request, response, std::move(f));
+void ClientService::Stub::async::GetBlockLocation(::grpc::ClientContext* context, const ::ClientNamenode::GetBlockLocationsRequest* request, ::ClientNamenode::GetBlockLocationResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ClientNamenode::GetBlockLocationsRequest, ::ClientNamenode::GetBlockLocationResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetBlockLocation_, context, request, response, std::move(f));
 }
 
-void ClientService::Stub::async::GetBlockLocation(::grpc::ClientContext* context, const ::GetBlockLocationsRequest* request, ::GetBlockLocationResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+void ClientService::Stub::async::GetBlockLocation(::grpc::ClientContext* context, const ::ClientNamenode::GetBlockLocationsRequest* request, ::ClientNamenode::GetBlockLocationResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetBlockLocation_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::GetBlockLocationResponse>* ClientService::Stub::PrepareAsyncGetBlockLocationRaw(::grpc::ClientContext* context, const ::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::GetBlockLocationResponse, ::GetBlockLocationsRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetBlockLocation_, context, request);
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetBlockLocationResponse>* ClientService::Stub::PrepareAsyncGetBlockLocationRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ClientNamenode::GetBlockLocationResponse, ::ClientNamenode::GetBlockLocationsRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetBlockLocation_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::GetBlockLocationResponse>* ClientService::Stub::AsyncGetBlockLocationRaw(::grpc::ClientContext* context, const ::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetBlockLocationResponse>* ClientService::Stub::AsyncGetBlockLocationRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncGetBlockLocationRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status ClientService::Stub::GetServerDefaults(::grpc::ClientContext* context, const ::GetServerDefaultsRequest& request, ::GetServerDefaultsResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::GetServerDefaultsRequest, ::GetServerDefaultsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetServerDefaults_, context, request, response);
+::grpc::Status ClientService::Stub::GetServerDefaults(::grpc::ClientContext* context, const ::ClientNamenode::GetServerDefaultsRequest& request, ::ClientNamenode::GetServerDefaultsResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ClientNamenode::GetServerDefaultsRequest, ::ClientNamenode::GetServerDefaultsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetServerDefaults_, context, request, response);
 }
 
-void ClientService::Stub::async::GetServerDefaults(::grpc::ClientContext* context, const ::GetServerDefaultsRequest* request, ::GetServerDefaultsResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::GetServerDefaultsRequest, ::GetServerDefaultsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetServerDefaults_, context, request, response, std::move(f));
+void ClientService::Stub::async::GetServerDefaults(::grpc::ClientContext* context, const ::ClientNamenode::GetServerDefaultsRequest* request, ::ClientNamenode::GetServerDefaultsResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ClientNamenode::GetServerDefaultsRequest, ::ClientNamenode::GetServerDefaultsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetServerDefaults_, context, request, response, std::move(f));
 }
 
-void ClientService::Stub::async::GetServerDefaults(::grpc::ClientContext* context, const ::GetServerDefaultsRequest* request, ::GetServerDefaultsResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+void ClientService::Stub::async::GetServerDefaults(::grpc::ClientContext* context, const ::ClientNamenode::GetServerDefaultsRequest* request, ::ClientNamenode::GetServerDefaultsResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetServerDefaults_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::GetServerDefaultsResponse>* ClientService::Stub::PrepareAsyncGetServerDefaultsRaw(::grpc::ClientContext* context, const ::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::GetServerDefaultsResponse, ::GetServerDefaultsRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetServerDefaults_, context, request);
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetServerDefaultsResponse>* ClientService::Stub::PrepareAsyncGetServerDefaultsRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ClientNamenode::GetServerDefaultsResponse, ::ClientNamenode::GetServerDefaultsRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetServerDefaults_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::GetServerDefaultsResponse>* ClientService::Stub::AsyncGetServerDefaultsRaw(::grpc::ClientContext* context, const ::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetServerDefaultsResponse>* ClientService::Stub::AsyncGetServerDefaultsRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncGetServerDefaultsRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status ClientService::Stub::Create(::grpc::ClientContext* context, const ::CreateRequest& request, ::CreateResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::CreateRequest, ::CreateResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Create_, context, request, response);
+::grpc::Status ClientService::Stub::Create(::grpc::ClientContext* context, const ::ClientNamenode::CreateRequest& request, ::ClientNamenode::CreateResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ClientNamenode::CreateRequest, ::ClientNamenode::CreateResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Create_, context, request, response);
 }
 
-void ClientService::Stub::async::Create(::grpc::ClientContext* context, const ::CreateRequest* request, ::CreateResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::CreateRequest, ::CreateResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Create_, context, request, response, std::move(f));
+void ClientService::Stub::async::Create(::grpc::ClientContext* context, const ::ClientNamenode::CreateRequest* request, ::ClientNamenode::CreateResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ClientNamenode::CreateRequest, ::ClientNamenode::CreateResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Create_, context, request, response, std::move(f));
 }
 
-void ClientService::Stub::async::Create(::grpc::ClientContext* context, const ::CreateRequest* request, ::CreateResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+void ClientService::Stub::async::Create(::grpc::ClientContext* context, const ::ClientNamenode::CreateRequest* request, ::ClientNamenode::CreateResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Create_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::CreateResponse>* ClientService::Stub::PrepareAsyncCreateRaw(::grpc::ClientContext* context, const ::CreateRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::CreateResponse, ::CreateRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Create_, context, request);
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::CreateResponse>* ClientService::Stub::PrepareAsyncCreateRaw(::grpc::ClientContext* context, const ::ClientNamenode::CreateRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ClientNamenode::CreateResponse, ::ClientNamenode::CreateRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Create_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::CreateResponse>* ClientService::Stub::AsyncCreateRaw(::grpc::ClientContext* context, const ::CreateRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::CreateResponse>* ClientService::Stub::AsyncCreateRaw(::grpc::ClientContext* context, const ::ClientNamenode::CreateRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncCreateRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status ClientService::Stub::Append(::grpc::ClientContext* context, const ::AppendRequest& request, ::AppendResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::AppendRequest, ::AppendResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Append_, context, request, response);
+::grpc::Status ClientService::Stub::Append(::grpc::ClientContext* context, const ::ClientNamenode::AppendRequest& request, ::ClientNamenode::AppendResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ClientNamenode::AppendRequest, ::ClientNamenode::AppendResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Append_, context, request, response);
 }
 
-void ClientService::Stub::async::Append(::grpc::ClientContext* context, const ::AppendRequest* request, ::AppendResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::AppendRequest, ::AppendResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Append_, context, request, response, std::move(f));
+void ClientService::Stub::async::Append(::grpc::ClientContext* context, const ::ClientNamenode::AppendRequest* request, ::ClientNamenode::AppendResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ClientNamenode::AppendRequest, ::ClientNamenode::AppendResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Append_, context, request, response, std::move(f));
 }
 
-void ClientService::Stub::async::Append(::grpc::ClientContext* context, const ::AppendRequest* request, ::AppendResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+void ClientService::Stub::async::Append(::grpc::ClientContext* context, const ::ClientNamenode::AppendRequest* request, ::ClientNamenode::AppendResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Append_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::AppendResponse>* ClientService::Stub::PrepareAsyncAppendRaw(::grpc::ClientContext* context, const ::AppendRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::AppendResponse, ::AppendRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Append_, context, request);
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::AppendResponse>* ClientService::Stub::PrepareAsyncAppendRaw(::grpc::ClientContext* context, const ::ClientNamenode::AppendRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ClientNamenode::AppendResponse, ::ClientNamenode::AppendRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Append_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::AppendResponse>* ClientService::Stub::AsyncAppendRaw(::grpc::ClientContext* context, const ::AppendRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::AppendResponse>* ClientService::Stub::AsyncAppendRaw(::grpc::ClientContext* context, const ::ClientNamenode::AppendRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncAppendRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status ClientService::Stub::Rename(::grpc::ClientContext* context, const ::RenameRequest& request, ::RenameResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::RenameRequest, ::RenameResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Rename_, context, request, response);
+::grpc::Status ClientService::Stub::Rename(::grpc::ClientContext* context, const ::ClientNamenode::RenameRequest& request, ::ClientNamenode::RenameResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ClientNamenode::RenameRequest, ::ClientNamenode::RenameResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Rename_, context, request, response);
 }
 
-void ClientService::Stub::async::Rename(::grpc::ClientContext* context, const ::RenameRequest* request, ::RenameResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::RenameRequest, ::RenameResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Rename_, context, request, response, std::move(f));
+void ClientService::Stub::async::Rename(::grpc::ClientContext* context, const ::ClientNamenode::RenameRequest* request, ::ClientNamenode::RenameResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ClientNamenode::RenameRequest, ::ClientNamenode::RenameResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Rename_, context, request, response, std::move(f));
 }
 
-void ClientService::Stub::async::Rename(::grpc::ClientContext* context, const ::RenameRequest* request, ::RenameResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+void ClientService::Stub::async::Rename(::grpc::ClientContext* context, const ::ClientNamenode::RenameRequest* request, ::ClientNamenode::RenameResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Rename_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::RenameResponse>* ClientService::Stub::PrepareAsyncRenameRaw(::grpc::ClientContext* context, const ::RenameRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::RenameResponse, ::RenameRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Rename_, context, request);
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::RenameResponse>* ClientService::Stub::PrepareAsyncRenameRaw(::grpc::ClientContext* context, const ::ClientNamenode::RenameRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ClientNamenode::RenameResponse, ::ClientNamenode::RenameRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Rename_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::RenameResponse>* ClientService::Stub::AsyncRenameRaw(::grpc::ClientContext* context, const ::RenameRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::RenameResponse>* ClientService::Stub::AsyncRenameRaw(::grpc::ClientContext* context, const ::ClientNamenode::RenameRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncRenameRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status ClientService::Stub::Delete(::grpc::ClientContext* context, const ::DeleteRequest& request, ::DeleteResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::DeleteRequest, ::DeleteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Delete_, context, request, response);
+::grpc::Status ClientService::Stub::Delete(::grpc::ClientContext* context, const ::ClientNamenode::DeleteRequest& request, ::ClientNamenode::DeleteResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ClientNamenode::DeleteRequest, ::ClientNamenode::DeleteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Delete_, context, request, response);
 }
 
-void ClientService::Stub::async::Delete(::grpc::ClientContext* context, const ::DeleteRequest* request, ::DeleteResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::DeleteRequest, ::DeleteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Delete_, context, request, response, std::move(f));
+void ClientService::Stub::async::Delete(::grpc::ClientContext* context, const ::ClientNamenode::DeleteRequest* request, ::ClientNamenode::DeleteResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ClientNamenode::DeleteRequest, ::ClientNamenode::DeleteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Delete_, context, request, response, std::move(f));
 }
 
-void ClientService::Stub::async::Delete(::grpc::ClientContext* context, const ::DeleteRequest* request, ::DeleteResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+void ClientService::Stub::async::Delete(::grpc::ClientContext* context, const ::ClientNamenode::DeleteRequest* request, ::ClientNamenode::DeleteResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Delete_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::DeleteResponse>* ClientService::Stub::PrepareAsyncDeleteRaw(::grpc::ClientContext* context, const ::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::DeleteResponse, ::DeleteRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Delete_, context, request);
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::DeleteResponse>* ClientService::Stub::PrepareAsyncDeleteRaw(::grpc::ClientContext* context, const ::ClientNamenode::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ClientNamenode::DeleteResponse, ::ClientNamenode::DeleteRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Delete_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::DeleteResponse>* ClientService::Stub::AsyncDeleteRaw(::grpc::ClientContext* context, const ::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::DeleteResponse>* ClientService::Stub::AsyncDeleteRaw(::grpc::ClientContext* context, const ::ClientNamenode::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncDeleteRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status ClientService::Stub::SetPermission(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::SetOwnerResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::SetOwnerRequest, ::SetOwnerResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SetPermission_, context, request, response);
+::grpc::Status ClientService::Stub::SetPermission(::grpc::ClientContext* context, const ::ClientNamenode::SetPermissionRequest& request, ::ClientNamenode::SetPermissionResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ClientNamenode::SetPermissionRequest, ::ClientNamenode::SetPermissionResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SetPermission_, context, request, response);
 }
 
-void ClientService::Stub::async::SetPermission(::grpc::ClientContext* context, const ::SetOwnerRequest* request, ::SetOwnerResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::SetOwnerRequest, ::SetOwnerResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetPermission_, context, request, response, std::move(f));
+void ClientService::Stub::async::SetPermission(::grpc::ClientContext* context, const ::ClientNamenode::SetPermissionRequest* request, ::ClientNamenode::SetPermissionResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ClientNamenode::SetPermissionRequest, ::ClientNamenode::SetPermissionResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetPermission_, context, request, response, std::move(f));
 }
 
-void ClientService::Stub::async::SetPermission(::grpc::ClientContext* context, const ::SetOwnerRequest* request, ::SetOwnerResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+void ClientService::Stub::async::SetPermission(::grpc::ClientContext* context, const ::ClientNamenode::SetPermissionRequest* request, ::ClientNamenode::SetPermissionResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetPermission_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::SetOwnerResponse>* ClientService::Stub::PrepareAsyncSetPermissionRaw(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::SetOwnerResponse, ::SetOwnerRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SetPermission_, context, request);
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::SetPermissionResponse>* ClientService::Stub::PrepareAsyncSetPermissionRaw(::grpc::ClientContext* context, const ::ClientNamenode::SetPermissionRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ClientNamenode::SetPermissionResponse, ::ClientNamenode::SetPermissionRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SetPermission_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::SetOwnerResponse>* ClientService::Stub::AsyncSetPermissionRaw(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::SetPermissionResponse>* ClientService::Stub::AsyncSetPermissionRaw(::grpc::ClientContext* context, const ::ClientNamenode::SetPermissionRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncSetPermissionRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status ClientService::Stub::SetOwner(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::SetOwnerResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::SetOwnerRequest, ::SetOwnerResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SetOwner_, context, request, response);
+::grpc::Status ClientService::Stub::SetOwner(::grpc::ClientContext* context, const ::ClientNamenode::SetOwnerRequest& request, ::ClientNamenode::SetOwnerResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ClientNamenode::SetOwnerRequest, ::ClientNamenode::SetOwnerResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SetOwner_, context, request, response);
 }
 
-void ClientService::Stub::async::SetOwner(::grpc::ClientContext* context, const ::SetOwnerRequest* request, ::SetOwnerResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::SetOwnerRequest, ::SetOwnerResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetOwner_, context, request, response, std::move(f));
+void ClientService::Stub::async::SetOwner(::grpc::ClientContext* context, const ::ClientNamenode::SetOwnerRequest* request, ::ClientNamenode::SetOwnerResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ClientNamenode::SetOwnerRequest, ::ClientNamenode::SetOwnerResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetOwner_, context, request, response, std::move(f));
 }
 
-void ClientService::Stub::async::SetOwner(::grpc::ClientContext* context, const ::SetOwnerRequest* request, ::SetOwnerResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+void ClientService::Stub::async::SetOwner(::grpc::ClientContext* context, const ::ClientNamenode::SetOwnerRequest* request, ::ClientNamenode::SetOwnerResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetOwner_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::SetOwnerResponse>* ClientService::Stub::PrepareAsyncSetOwnerRaw(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::SetOwnerResponse, ::SetOwnerRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SetOwner_, context, request);
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::SetOwnerResponse>* ClientService::Stub::PrepareAsyncSetOwnerRaw(::grpc::ClientContext* context, const ::ClientNamenode::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ClientNamenode::SetOwnerResponse, ::ClientNamenode::SetOwnerRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SetOwner_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::SetOwnerResponse>* ClientService::Stub::AsyncSetOwnerRaw(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::SetOwnerResponse>* ClientService::Stub::AsyncSetOwnerRaw(::grpc::ClientContext* context, const ::ClientNamenode::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncSetOwnerRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status ClientService::Stub::mkdir(::grpc::ClientContext* context, const ::mkdirRequest& request, ::mkdirResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::mkdirRequest, ::mkdirResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_mkdir_, context, request, response);
+::grpc::Status ClientService::Stub::mkdir(::grpc::ClientContext* context, const ::ClientNamenode::mkdirRequest& request, ::ClientNamenode::mkdirResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ClientNamenode::mkdirRequest, ::ClientNamenode::mkdirResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_mkdir_, context, request, response);
 }
 
-void ClientService::Stub::async::mkdir(::grpc::ClientContext* context, const ::mkdirRequest* request, ::mkdirResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::mkdirRequest, ::mkdirResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_mkdir_, context, request, response, std::move(f));
+void ClientService::Stub::async::mkdir(::grpc::ClientContext* context, const ::ClientNamenode::mkdirRequest* request, ::ClientNamenode::mkdirResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ClientNamenode::mkdirRequest, ::ClientNamenode::mkdirResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_mkdir_, context, request, response, std::move(f));
 }
 
-void ClientService::Stub::async::mkdir(::grpc::ClientContext* context, const ::mkdirRequest* request, ::mkdirResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+void ClientService::Stub::async::mkdir(::grpc::ClientContext* context, const ::ClientNamenode::mkdirRequest* request, ::ClientNamenode::mkdirResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_mkdir_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::mkdirResponse>* ClientService::Stub::PrepareAsyncmkdirRaw(::grpc::ClientContext* context, const ::mkdirRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::mkdirResponse, ::mkdirRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_mkdir_, context, request);
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::mkdirResponse>* ClientService::Stub::PrepareAsyncmkdirRaw(::grpc::ClientContext* context, const ::ClientNamenode::mkdirRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ClientNamenode::mkdirResponse, ::ClientNamenode::mkdirRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_mkdir_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::mkdirResponse>* ClientService::Stub::AsyncmkdirRaw(::grpc::ClientContext* context, const ::mkdirRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::mkdirResponse>* ClientService::Stub::AsyncmkdirRaw(::grpc::ClientContext* context, const ::ClientNamenode::mkdirRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncmkdirRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status ClientService::Stub::Listing(::grpc::ClientContext* context, const ::GetListingrRequest& request, ::GetListingResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::GetListingrRequest, ::GetListingResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Listing_, context, request, response);
+::grpc::Status ClientService::Stub::Listing(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest& request, ::ClientNamenode::GetListingResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ClientNamenode::GetListingrRequest, ::ClientNamenode::GetListingResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Listing_, context, request, response);
 }
 
-void ClientService::Stub::async::Listing(::grpc::ClientContext* context, const ::GetListingrRequest* request, ::GetListingResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::GetListingrRequest, ::GetListingResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Listing_, context, request, response, std::move(f));
+void ClientService::Stub::async::Listing(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest* request, ::ClientNamenode::GetListingResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ClientNamenode::GetListingrRequest, ::ClientNamenode::GetListingResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Listing_, context, request, response, std::move(f));
 }
 
-void ClientService::Stub::async::Listing(::grpc::ClientContext* context, const ::GetListingrRequest* request, ::GetListingResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+void ClientService::Stub::async::Listing(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest* request, ::ClientNamenode::GetListingResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Listing_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::GetListingResponse>* ClientService::Stub::PrepareAsyncListingRaw(::grpc::ClientContext* context, const ::GetListingrRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::GetListingResponse, ::GetListingrRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Listing_, context, request);
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetListingResponse>* ClientService::Stub::PrepareAsyncListingRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ClientNamenode::GetListingResponse, ::ClientNamenode::GetListingrRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Listing_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::GetListingResponse>* ClientService::Stub::AsyncListingRaw(::grpc::ClientContext* context, const ::GetListingrRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetListingResponse>* ClientService::Stub::AsyncListingRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncListingRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status ClientService::Stub::RenewLease(::grpc::ClientContext* context, const ::RenewLeaseRequest& request, ::RenameResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::RenewLeaseRequest, ::RenameResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_RenewLease_, context, request, response);
+::grpc::Status ClientService::Stub::RenewLease(::grpc::ClientContext* context, const ::ClientNamenode::RenewLeaseRequest& request, ::ClientNamenode::RenameResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ClientNamenode::RenewLeaseRequest, ::ClientNamenode::RenameResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_RenewLease_, context, request, response);
 }
 
-void ClientService::Stub::async::RenewLease(::grpc::ClientContext* context, const ::RenewLeaseRequest* request, ::RenameResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::RenewLeaseRequest, ::RenameResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_RenewLease_, context, request, response, std::move(f));
+void ClientService::Stub::async::RenewLease(::grpc::ClientContext* context, const ::ClientNamenode::RenewLeaseRequest* request, ::ClientNamenode::RenameResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ClientNamenode::RenewLeaseRequest, ::ClientNamenode::RenameResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_RenewLease_, context, request, response, std::move(f));
 }
 
-void ClientService::Stub::async::RenewLease(::grpc::ClientContext* context, const ::RenewLeaseRequest* request, ::RenameResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+void ClientService::Stub::async::RenewLease(::grpc::ClientContext* context, const ::ClientNamenode::RenewLeaseRequest* request, ::ClientNamenode::RenameResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_RenewLease_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::RenameResponse>* ClientService::Stub::PrepareAsyncRenewLeaseRaw(::grpc::ClientContext* context, const ::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::RenameResponse, ::RenewLeaseRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_RenewLease_, context, request);
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::RenameResponse>* ClientService::Stub::PrepareAsyncRenewLeaseRaw(::grpc::ClientContext* context, const ::ClientNamenode::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ClientNamenode::RenameResponse, ::ClientNamenode::RenewLeaseRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_RenewLease_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::RenameResponse>* ClientService::Stub::AsyncRenewLeaseRaw(::grpc::ClientContext* context, const ::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::RenameResponse>* ClientService::Stub::AsyncRenewLeaseRaw(::grpc::ClientContext* context, const ::ClientNamenode::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncRenewLeaseRaw(context, request, cq);
   result->StartCall();
@@ -311,111 +312,111 @@ ClientService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ClientService_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::GetBlockLocationsRequest, ::GetBlockLocationResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::ClientNamenode::GetBlockLocationsRequest, ::ClientNamenode::GetBlockLocationResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](ClientService::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::GetBlockLocationsRequest* req,
-             ::GetBlockLocationResponse* resp) {
+             const ::ClientNamenode::GetBlockLocationsRequest* req,
+             ::ClientNamenode::GetBlockLocationResponse* resp) {
                return service->GetBlockLocation(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ClientService_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::GetServerDefaultsRequest, ::GetServerDefaultsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::ClientNamenode::GetServerDefaultsRequest, ::ClientNamenode::GetServerDefaultsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](ClientService::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::GetServerDefaultsRequest* req,
-             ::GetServerDefaultsResponse* resp) {
+             const ::ClientNamenode::GetServerDefaultsRequest* req,
+             ::ClientNamenode::GetServerDefaultsResponse* resp) {
                return service->GetServerDefaults(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ClientService_method_names[2],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::CreateRequest, ::CreateResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::ClientNamenode::CreateRequest, ::ClientNamenode::CreateResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](ClientService::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::CreateRequest* req,
-             ::CreateResponse* resp) {
+             const ::ClientNamenode::CreateRequest* req,
+             ::ClientNamenode::CreateResponse* resp) {
                return service->Create(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ClientService_method_names[3],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::AppendRequest, ::AppendResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::ClientNamenode::AppendRequest, ::ClientNamenode::AppendResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](ClientService::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::AppendRequest* req,
-             ::AppendResponse* resp) {
+             const ::ClientNamenode::AppendRequest* req,
+             ::ClientNamenode::AppendResponse* resp) {
                return service->Append(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ClientService_method_names[4],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::RenameRequest, ::RenameResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::ClientNamenode::RenameRequest, ::ClientNamenode::RenameResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](ClientService::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::RenameRequest* req,
-             ::RenameResponse* resp) {
+             const ::ClientNamenode::RenameRequest* req,
+             ::ClientNamenode::RenameResponse* resp) {
                return service->Rename(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ClientService_method_names[5],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::DeleteRequest, ::DeleteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::ClientNamenode::DeleteRequest, ::ClientNamenode::DeleteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](ClientService::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::DeleteRequest* req,
-             ::DeleteResponse* resp) {
+             const ::ClientNamenode::DeleteRequest* req,
+             ::ClientNamenode::DeleteResponse* resp) {
                return service->Delete(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ClientService_method_names[6],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::SetOwnerRequest, ::SetOwnerResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::ClientNamenode::SetPermissionRequest, ::ClientNamenode::SetPermissionResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](ClientService::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::SetOwnerRequest* req,
-             ::SetOwnerResponse* resp) {
+             const ::ClientNamenode::SetPermissionRequest* req,
+             ::ClientNamenode::SetPermissionResponse* resp) {
                return service->SetPermission(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ClientService_method_names[7],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::SetOwnerRequest, ::SetOwnerResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::ClientNamenode::SetOwnerRequest, ::ClientNamenode::SetOwnerResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](ClientService::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::SetOwnerRequest* req,
-             ::SetOwnerResponse* resp) {
+             const ::ClientNamenode::SetOwnerRequest* req,
+             ::ClientNamenode::SetOwnerResponse* resp) {
                return service->SetOwner(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ClientService_method_names[8],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::mkdirRequest, ::mkdirResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::ClientNamenode::mkdirRequest, ::ClientNamenode::mkdirResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](ClientService::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::mkdirRequest* req,
-             ::mkdirResponse* resp) {
+             const ::ClientNamenode::mkdirRequest* req,
+             ::ClientNamenode::mkdirResponse* resp) {
                return service->mkdir(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ClientService_method_names[9],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::GetListingrRequest, ::GetListingResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::ClientNamenode::GetListingrRequest, ::ClientNamenode::GetListingResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](ClientService::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::GetListingrRequest* req,
-             ::GetListingResponse* resp) {
+             const ::ClientNamenode::GetListingrRequest* req,
+             ::ClientNamenode::GetListingResponse* resp) {
                return service->Listing(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ClientService_method_names[10],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::RenewLeaseRequest, ::RenameResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::ClientNamenode::RenewLeaseRequest, ::ClientNamenode::RenameResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](ClientService::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::RenewLeaseRequest* req,
-             ::RenameResponse* resp) {
+             const ::ClientNamenode::RenewLeaseRequest* req,
+             ::ClientNamenode::RenameResponse* resp) {
                return service->RenewLease(ctx, req, resp);
              }, this)));
 }
@@ -423,81 +424,83 @@ ClientService::Service::Service() {
 ClientService::Service::~Service() {
 }
 
-::grpc::Status ClientService::Service::GetBlockLocation(::grpc::ServerContext* context, const ::GetBlockLocationsRequest* request, ::GetBlockLocationResponse* response) {
+::grpc::Status ClientService::Service::GetBlockLocation(::grpc::ServerContext* context, const ::ClientNamenode::GetBlockLocationsRequest* request, ::ClientNamenode::GetBlockLocationResponse* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status ClientService::Service::GetServerDefaults(::grpc::ServerContext* context, const ::GetServerDefaultsRequest* request, ::GetServerDefaultsResponse* response) {
+::grpc::Status ClientService::Service::GetServerDefaults(::grpc::ServerContext* context, const ::ClientNamenode::GetServerDefaultsRequest* request, ::ClientNamenode::GetServerDefaultsResponse* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status ClientService::Service::Create(::grpc::ServerContext* context, const ::CreateRequest* request, ::CreateResponse* response) {
+::grpc::Status ClientService::Service::Create(::grpc::ServerContext* context, const ::ClientNamenode::CreateRequest* request, ::ClientNamenode::CreateResponse* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status ClientService::Service::Append(::grpc::ServerContext* context, const ::AppendRequest* request, ::AppendResponse* response) {
+::grpc::Status ClientService::Service::Append(::grpc::ServerContext* context, const ::ClientNamenode::AppendRequest* request, ::ClientNamenode::AppendResponse* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status ClientService::Service::Rename(::grpc::ServerContext* context, const ::RenameRequest* request, ::RenameResponse* response) {
+::grpc::Status ClientService::Service::Rename(::grpc::ServerContext* context, const ::ClientNamenode::RenameRequest* request, ::ClientNamenode::RenameResponse* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status ClientService::Service::Delete(::grpc::ServerContext* context, const ::DeleteRequest* request, ::DeleteResponse* response) {
+::grpc::Status ClientService::Service::Delete(::grpc::ServerContext* context, const ::ClientNamenode::DeleteRequest* request, ::ClientNamenode::DeleteResponse* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status ClientService::Service::SetPermission(::grpc::ServerContext* context, const ::SetOwnerRequest* request, ::SetOwnerResponse* response) {
+::grpc::Status ClientService::Service::SetPermission(::grpc::ServerContext* context, const ::ClientNamenode::SetPermissionRequest* request, ::ClientNamenode::SetPermissionResponse* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status ClientService::Service::SetOwner(::grpc::ServerContext* context, const ::SetOwnerRequest* request, ::SetOwnerResponse* response) {
+::grpc::Status ClientService::Service::SetOwner(::grpc::ServerContext* context, const ::ClientNamenode::SetOwnerRequest* request, ::ClientNamenode::SetOwnerResponse* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status ClientService::Service::mkdir(::grpc::ServerContext* context, const ::mkdirRequest* request, ::mkdirResponse* response) {
+::grpc::Status ClientService::Service::mkdir(::grpc::ServerContext* context, const ::ClientNamenode::mkdirRequest* request, ::ClientNamenode::mkdirResponse* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status ClientService::Service::Listing(::grpc::ServerContext* context, const ::GetListingrRequest* request, ::GetListingResponse* response) {
+::grpc::Status ClientService::Service::Listing(::grpc::ServerContext* context, const ::ClientNamenode::GetListingrRequest* request, ::ClientNamenode::GetListingResponse* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status ClientService::Service::RenewLease(::grpc::ServerContext* context, const ::RenewLeaseRequest* request, ::RenameResponse* response) {
+::grpc::Status ClientService::Service::RenewLease(::grpc::ServerContext* context, const ::ClientNamenode::RenewLeaseRequest* request, ::ClientNamenode::RenameResponse* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
+
+}  // namespace ClientNamenode
 

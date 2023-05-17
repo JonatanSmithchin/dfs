@@ -25,254 +25,256 @@
 #include <grpcpp/support/stub_options.h>
 #include <grpcpp/support/sync_stream.h>
 
+namespace ClientNamenode {
+
 // 定义RPC接口
 class ClientService final {
  public:
   static constexpr char const* service_full_name() {
-    return "ClientService";
+    return "ClientNamenode.ClientService";
   }
   class StubInterface {
    public:
     virtual ~StubInterface() {}
     // 文件操作接口
-    virtual ::grpc::Status GetBlockLocation(::grpc::ClientContext* context, const ::GetBlockLocationsRequest& request, ::GetBlockLocationResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::GetBlockLocationResponse>> AsyncGetBlockLocation(::grpc::ClientContext* context, const ::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::GetBlockLocationResponse>>(AsyncGetBlockLocationRaw(context, request, cq));
+    virtual ::grpc::Status GetBlockLocation(::grpc::ClientContext* context, const ::ClientNamenode::GetBlockLocationsRequest& request, ::ClientNamenode::GetBlockLocationResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::GetBlockLocationResponse>> AsyncGetBlockLocation(::grpc::ClientContext* context, const ::ClientNamenode::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::GetBlockLocationResponse>>(AsyncGetBlockLocationRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::GetBlockLocationResponse>> PrepareAsyncGetBlockLocation(::grpc::ClientContext* context, const ::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::GetBlockLocationResponse>>(PrepareAsyncGetBlockLocationRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::GetBlockLocationResponse>> PrepareAsyncGetBlockLocation(::grpc::ClientContext* context, const ::ClientNamenode::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::GetBlockLocationResponse>>(PrepareAsyncGetBlockLocationRaw(context, request, cq));
     }
-    virtual ::grpc::Status GetServerDefaults(::grpc::ClientContext* context, const ::GetServerDefaultsRequest& request, ::GetServerDefaultsResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::GetServerDefaultsResponse>> AsyncGetServerDefaults(::grpc::ClientContext* context, const ::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::GetServerDefaultsResponse>>(AsyncGetServerDefaultsRaw(context, request, cq));
+    virtual ::grpc::Status GetServerDefaults(::grpc::ClientContext* context, const ::ClientNamenode::GetServerDefaultsRequest& request, ::ClientNamenode::GetServerDefaultsResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::GetServerDefaultsResponse>> AsyncGetServerDefaults(::grpc::ClientContext* context, const ::ClientNamenode::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::GetServerDefaultsResponse>>(AsyncGetServerDefaultsRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::GetServerDefaultsResponse>> PrepareAsyncGetServerDefaults(::grpc::ClientContext* context, const ::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::GetServerDefaultsResponse>>(PrepareAsyncGetServerDefaultsRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::GetServerDefaultsResponse>> PrepareAsyncGetServerDefaults(::grpc::ClientContext* context, const ::ClientNamenode::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::GetServerDefaultsResponse>>(PrepareAsyncGetServerDefaultsRaw(context, request, cq));
     }
-    virtual ::grpc::Status Create(::grpc::ClientContext* context, const ::CreateRequest& request, ::CreateResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::CreateResponse>> AsyncCreate(::grpc::ClientContext* context, const ::CreateRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::CreateResponse>>(AsyncCreateRaw(context, request, cq));
+    virtual ::grpc::Status Create(::grpc::ClientContext* context, const ::ClientNamenode::CreateRequest& request, ::ClientNamenode::CreateResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::CreateResponse>> AsyncCreate(::grpc::ClientContext* context, const ::ClientNamenode::CreateRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::CreateResponse>>(AsyncCreateRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::CreateResponse>> PrepareAsyncCreate(::grpc::ClientContext* context, const ::CreateRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::CreateResponse>>(PrepareAsyncCreateRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::CreateResponse>> PrepareAsyncCreate(::grpc::ClientContext* context, const ::ClientNamenode::CreateRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::CreateResponse>>(PrepareAsyncCreateRaw(context, request, cq));
     }
-    virtual ::grpc::Status Append(::grpc::ClientContext* context, const ::AppendRequest& request, ::AppendResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::AppendResponse>> AsyncAppend(::grpc::ClientContext* context, const ::AppendRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::AppendResponse>>(AsyncAppendRaw(context, request, cq));
+    virtual ::grpc::Status Append(::grpc::ClientContext* context, const ::ClientNamenode::AppendRequest& request, ::ClientNamenode::AppendResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::AppendResponse>> AsyncAppend(::grpc::ClientContext* context, const ::ClientNamenode::AppendRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::AppendResponse>>(AsyncAppendRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::AppendResponse>> PrepareAsyncAppend(::grpc::ClientContext* context, const ::AppendRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::AppendResponse>>(PrepareAsyncAppendRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::AppendResponse>> PrepareAsyncAppend(::grpc::ClientContext* context, const ::ClientNamenode::AppendRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::AppendResponse>>(PrepareAsyncAppendRaw(context, request, cq));
     }
-    virtual ::grpc::Status Rename(::grpc::ClientContext* context, const ::RenameRequest& request, ::RenameResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::RenameResponse>> AsyncRename(::grpc::ClientContext* context, const ::RenameRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::RenameResponse>>(AsyncRenameRaw(context, request, cq));
+    virtual ::grpc::Status Rename(::grpc::ClientContext* context, const ::ClientNamenode::RenameRequest& request, ::ClientNamenode::RenameResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::RenameResponse>> AsyncRename(::grpc::ClientContext* context, const ::ClientNamenode::RenameRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::RenameResponse>>(AsyncRenameRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::RenameResponse>> PrepareAsyncRename(::grpc::ClientContext* context, const ::RenameRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::RenameResponse>>(PrepareAsyncRenameRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::RenameResponse>> PrepareAsyncRename(::grpc::ClientContext* context, const ::ClientNamenode::RenameRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::RenameResponse>>(PrepareAsyncRenameRaw(context, request, cq));
     }
-    virtual ::grpc::Status Delete(::grpc::ClientContext* context, const ::DeleteRequest& request, ::DeleteResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DeleteResponse>> AsyncDelete(::grpc::ClientContext* context, const ::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DeleteResponse>>(AsyncDeleteRaw(context, request, cq));
+    virtual ::grpc::Status Delete(::grpc::ClientContext* context, const ::ClientNamenode::DeleteRequest& request, ::ClientNamenode::DeleteResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::DeleteResponse>> AsyncDelete(::grpc::ClientContext* context, const ::ClientNamenode::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::DeleteResponse>>(AsyncDeleteRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DeleteResponse>> PrepareAsyncDelete(::grpc::ClientContext* context, const ::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DeleteResponse>>(PrepareAsyncDeleteRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::DeleteResponse>> PrepareAsyncDelete(::grpc::ClientContext* context, const ::ClientNamenode::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::DeleteResponse>>(PrepareAsyncDeleteRaw(context, request, cq));
     }
-    virtual ::grpc::Status SetPermission(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::SetOwnerResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::SetOwnerResponse>> AsyncSetPermission(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::SetOwnerResponse>>(AsyncSetPermissionRaw(context, request, cq));
+    virtual ::grpc::Status SetPermission(::grpc::ClientContext* context, const ::ClientNamenode::SetPermissionRequest& request, ::ClientNamenode::SetPermissionResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::SetPermissionResponse>> AsyncSetPermission(::grpc::ClientContext* context, const ::ClientNamenode::SetPermissionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::SetPermissionResponse>>(AsyncSetPermissionRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::SetOwnerResponse>> PrepareAsyncSetPermission(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::SetOwnerResponse>>(PrepareAsyncSetPermissionRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::SetPermissionResponse>> PrepareAsyncSetPermission(::grpc::ClientContext* context, const ::ClientNamenode::SetPermissionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::SetPermissionResponse>>(PrepareAsyncSetPermissionRaw(context, request, cq));
     }
-    virtual ::grpc::Status SetOwner(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::SetOwnerResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::SetOwnerResponse>> AsyncSetOwner(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::SetOwnerResponse>>(AsyncSetOwnerRaw(context, request, cq));
+    virtual ::grpc::Status SetOwner(::grpc::ClientContext* context, const ::ClientNamenode::SetOwnerRequest& request, ::ClientNamenode::SetOwnerResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::SetOwnerResponse>> AsyncSetOwner(::grpc::ClientContext* context, const ::ClientNamenode::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::SetOwnerResponse>>(AsyncSetOwnerRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::SetOwnerResponse>> PrepareAsyncSetOwner(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::SetOwnerResponse>>(PrepareAsyncSetOwnerRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::SetOwnerResponse>> PrepareAsyncSetOwner(::grpc::ClientContext* context, const ::ClientNamenode::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::SetOwnerResponse>>(PrepareAsyncSetOwnerRaw(context, request, cq));
     }
-    virtual ::grpc::Status mkdir(::grpc::ClientContext* context, const ::mkdirRequest& request, ::mkdirResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mkdirResponse>> Asyncmkdir(::grpc::ClientContext* context, const ::mkdirRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mkdirResponse>>(AsyncmkdirRaw(context, request, cq));
+    virtual ::grpc::Status mkdir(::grpc::ClientContext* context, const ::ClientNamenode::mkdirRequest& request, ::ClientNamenode::mkdirResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::mkdirResponse>> Asyncmkdir(::grpc::ClientContext* context, const ::ClientNamenode::mkdirRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::mkdirResponse>>(AsyncmkdirRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mkdirResponse>> PrepareAsyncmkdir(::grpc::ClientContext* context, const ::mkdirRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mkdirResponse>>(PrepareAsyncmkdirRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::mkdirResponse>> PrepareAsyncmkdir(::grpc::ClientContext* context, const ::ClientNamenode::mkdirRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::mkdirResponse>>(PrepareAsyncmkdirRaw(context, request, cq));
     }
-    virtual ::grpc::Status Listing(::grpc::ClientContext* context, const ::GetListingrRequest& request, ::GetListingResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::GetListingResponse>> AsyncListing(::grpc::ClientContext* context, const ::GetListingrRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::GetListingResponse>>(AsyncListingRaw(context, request, cq));
+    virtual ::grpc::Status Listing(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest& request, ::ClientNamenode::GetListingResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::GetListingResponse>> AsyncListing(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::GetListingResponse>>(AsyncListingRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::GetListingResponse>> PrepareAsyncListing(::grpc::ClientContext* context, const ::GetListingrRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::GetListingResponse>>(PrepareAsyncListingRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::GetListingResponse>> PrepareAsyncListing(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::GetListingResponse>>(PrepareAsyncListingRaw(context, request, cq));
     }
-    virtual ::grpc::Status RenewLease(::grpc::ClientContext* context, const ::RenewLeaseRequest& request, ::RenameResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::RenameResponse>> AsyncRenewLease(::grpc::ClientContext* context, const ::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::RenameResponse>>(AsyncRenewLeaseRaw(context, request, cq));
+    virtual ::grpc::Status RenewLease(::grpc::ClientContext* context, const ::ClientNamenode::RenewLeaseRequest& request, ::ClientNamenode::RenameResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::RenameResponse>> AsyncRenewLease(::grpc::ClientContext* context, const ::ClientNamenode::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::RenameResponse>>(AsyncRenewLeaseRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::RenameResponse>> PrepareAsyncRenewLease(::grpc::ClientContext* context, const ::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::RenameResponse>>(PrepareAsyncRenewLeaseRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::RenameResponse>> PrepareAsyncRenewLease(::grpc::ClientContext* context, const ::ClientNamenode::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::RenameResponse>>(PrepareAsyncRenewLeaseRaw(context, request, cq));
     }
     // dfs管理接口
     class async_interface {
      public:
       virtual ~async_interface() {}
       // 文件操作接口
-      virtual void GetBlockLocation(::grpc::ClientContext* context, const ::GetBlockLocationsRequest* request, ::GetBlockLocationResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetBlockLocation(::grpc::ClientContext* context, const ::GetBlockLocationsRequest* request, ::GetBlockLocationResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void GetServerDefaults(::grpc::ClientContext* context, const ::GetServerDefaultsRequest* request, ::GetServerDefaultsResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetServerDefaults(::grpc::ClientContext* context, const ::GetServerDefaultsRequest* request, ::GetServerDefaultsResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void Create(::grpc::ClientContext* context, const ::CreateRequest* request, ::CreateResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void Create(::grpc::ClientContext* context, const ::CreateRequest* request, ::CreateResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void Append(::grpc::ClientContext* context, const ::AppendRequest* request, ::AppendResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void Append(::grpc::ClientContext* context, const ::AppendRequest* request, ::AppendResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void Rename(::grpc::ClientContext* context, const ::RenameRequest* request, ::RenameResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void Rename(::grpc::ClientContext* context, const ::RenameRequest* request, ::RenameResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void Delete(::grpc::ClientContext* context, const ::DeleteRequest* request, ::DeleteResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void Delete(::grpc::ClientContext* context, const ::DeleteRequest* request, ::DeleteResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void SetPermission(::grpc::ClientContext* context, const ::SetOwnerRequest* request, ::SetOwnerResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void SetPermission(::grpc::ClientContext* context, const ::SetOwnerRequest* request, ::SetOwnerResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void SetOwner(::grpc::ClientContext* context, const ::SetOwnerRequest* request, ::SetOwnerResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void SetOwner(::grpc::ClientContext* context, const ::SetOwnerRequest* request, ::SetOwnerResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void mkdir(::grpc::ClientContext* context, const ::mkdirRequest* request, ::mkdirResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void mkdir(::grpc::ClientContext* context, const ::mkdirRequest* request, ::mkdirResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void Listing(::grpc::ClientContext* context, const ::GetListingrRequest* request, ::GetListingResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void Listing(::grpc::ClientContext* context, const ::GetListingrRequest* request, ::GetListingResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void RenewLease(::grpc::ClientContext* context, const ::RenewLeaseRequest* request, ::RenameResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void RenewLease(::grpc::ClientContext* context, const ::RenewLeaseRequest* request, ::RenameResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetBlockLocation(::grpc::ClientContext* context, const ::ClientNamenode::GetBlockLocationsRequest* request, ::ClientNamenode::GetBlockLocationResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetBlockLocation(::grpc::ClientContext* context, const ::ClientNamenode::GetBlockLocationsRequest* request, ::ClientNamenode::GetBlockLocationResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetServerDefaults(::grpc::ClientContext* context, const ::ClientNamenode::GetServerDefaultsRequest* request, ::ClientNamenode::GetServerDefaultsResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetServerDefaults(::grpc::ClientContext* context, const ::ClientNamenode::GetServerDefaultsRequest* request, ::ClientNamenode::GetServerDefaultsResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void Create(::grpc::ClientContext* context, const ::ClientNamenode::CreateRequest* request, ::ClientNamenode::CreateResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Create(::grpc::ClientContext* context, const ::ClientNamenode::CreateRequest* request, ::ClientNamenode::CreateResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void Append(::grpc::ClientContext* context, const ::ClientNamenode::AppendRequest* request, ::ClientNamenode::AppendResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Append(::grpc::ClientContext* context, const ::ClientNamenode::AppendRequest* request, ::ClientNamenode::AppendResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void Rename(::grpc::ClientContext* context, const ::ClientNamenode::RenameRequest* request, ::ClientNamenode::RenameResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Rename(::grpc::ClientContext* context, const ::ClientNamenode::RenameRequest* request, ::ClientNamenode::RenameResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void Delete(::grpc::ClientContext* context, const ::ClientNamenode::DeleteRequest* request, ::ClientNamenode::DeleteResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Delete(::grpc::ClientContext* context, const ::ClientNamenode::DeleteRequest* request, ::ClientNamenode::DeleteResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void SetPermission(::grpc::ClientContext* context, const ::ClientNamenode::SetPermissionRequest* request, ::ClientNamenode::SetPermissionResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SetPermission(::grpc::ClientContext* context, const ::ClientNamenode::SetPermissionRequest* request, ::ClientNamenode::SetPermissionResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void SetOwner(::grpc::ClientContext* context, const ::ClientNamenode::SetOwnerRequest* request, ::ClientNamenode::SetOwnerResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SetOwner(::grpc::ClientContext* context, const ::ClientNamenode::SetOwnerRequest* request, ::ClientNamenode::SetOwnerResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void mkdir(::grpc::ClientContext* context, const ::ClientNamenode::mkdirRequest* request, ::ClientNamenode::mkdirResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void mkdir(::grpc::ClientContext* context, const ::ClientNamenode::mkdirRequest* request, ::ClientNamenode::mkdirResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void Listing(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest* request, ::ClientNamenode::GetListingResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Listing(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest* request, ::ClientNamenode::GetListingResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void RenewLease(::grpc::ClientContext* context, const ::ClientNamenode::RenewLeaseRequest* request, ::ClientNamenode::RenameResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void RenewLease(::grpc::ClientContext* context, const ::ClientNamenode::RenewLeaseRequest* request, ::ClientNamenode::RenameResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // dfs管理接口
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
     class async_interface* experimental_async() { return async(); }
    private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::GetBlockLocationResponse>* AsyncGetBlockLocationRaw(::grpc::ClientContext* context, const ::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::GetBlockLocationResponse>* PrepareAsyncGetBlockLocationRaw(::grpc::ClientContext* context, const ::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::GetServerDefaultsResponse>* AsyncGetServerDefaultsRaw(::grpc::ClientContext* context, const ::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::GetServerDefaultsResponse>* PrepareAsyncGetServerDefaultsRaw(::grpc::ClientContext* context, const ::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::CreateResponse>* AsyncCreateRaw(::grpc::ClientContext* context, const ::CreateRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::CreateResponse>* PrepareAsyncCreateRaw(::grpc::ClientContext* context, const ::CreateRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::AppendResponse>* AsyncAppendRaw(::grpc::ClientContext* context, const ::AppendRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::AppendResponse>* PrepareAsyncAppendRaw(::grpc::ClientContext* context, const ::AppendRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::RenameResponse>* AsyncRenameRaw(::grpc::ClientContext* context, const ::RenameRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::RenameResponse>* PrepareAsyncRenameRaw(::grpc::ClientContext* context, const ::RenameRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::DeleteResponse>* AsyncDeleteRaw(::grpc::ClientContext* context, const ::DeleteRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::DeleteResponse>* PrepareAsyncDeleteRaw(::grpc::ClientContext* context, const ::DeleteRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::SetOwnerResponse>* AsyncSetPermissionRaw(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::SetOwnerResponse>* PrepareAsyncSetPermissionRaw(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::SetOwnerResponse>* AsyncSetOwnerRaw(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::SetOwnerResponse>* PrepareAsyncSetOwnerRaw(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::mkdirResponse>* AsyncmkdirRaw(::grpc::ClientContext* context, const ::mkdirRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::mkdirResponse>* PrepareAsyncmkdirRaw(::grpc::ClientContext* context, const ::mkdirRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::GetListingResponse>* AsyncListingRaw(::grpc::ClientContext* context, const ::GetListingrRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::GetListingResponse>* PrepareAsyncListingRaw(::grpc::ClientContext* context, const ::GetListingrRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::RenameResponse>* AsyncRenewLeaseRaw(::grpc::ClientContext* context, const ::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::RenameResponse>* PrepareAsyncRenewLeaseRaw(::grpc::ClientContext* context, const ::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::GetBlockLocationResponse>* AsyncGetBlockLocationRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::GetBlockLocationResponse>* PrepareAsyncGetBlockLocationRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::GetServerDefaultsResponse>* AsyncGetServerDefaultsRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::GetServerDefaultsResponse>* PrepareAsyncGetServerDefaultsRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::CreateResponse>* AsyncCreateRaw(::grpc::ClientContext* context, const ::ClientNamenode::CreateRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::CreateResponse>* PrepareAsyncCreateRaw(::grpc::ClientContext* context, const ::ClientNamenode::CreateRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::AppendResponse>* AsyncAppendRaw(::grpc::ClientContext* context, const ::ClientNamenode::AppendRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::AppendResponse>* PrepareAsyncAppendRaw(::grpc::ClientContext* context, const ::ClientNamenode::AppendRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::RenameResponse>* AsyncRenameRaw(::grpc::ClientContext* context, const ::ClientNamenode::RenameRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::RenameResponse>* PrepareAsyncRenameRaw(::grpc::ClientContext* context, const ::ClientNamenode::RenameRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::DeleteResponse>* AsyncDeleteRaw(::grpc::ClientContext* context, const ::ClientNamenode::DeleteRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::DeleteResponse>* PrepareAsyncDeleteRaw(::grpc::ClientContext* context, const ::ClientNamenode::DeleteRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::SetPermissionResponse>* AsyncSetPermissionRaw(::grpc::ClientContext* context, const ::ClientNamenode::SetPermissionRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::SetPermissionResponse>* PrepareAsyncSetPermissionRaw(::grpc::ClientContext* context, const ::ClientNamenode::SetPermissionRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::SetOwnerResponse>* AsyncSetOwnerRaw(::grpc::ClientContext* context, const ::ClientNamenode::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::SetOwnerResponse>* PrepareAsyncSetOwnerRaw(::grpc::ClientContext* context, const ::ClientNamenode::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::mkdirResponse>* AsyncmkdirRaw(::grpc::ClientContext* context, const ::ClientNamenode::mkdirRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::mkdirResponse>* PrepareAsyncmkdirRaw(::grpc::ClientContext* context, const ::ClientNamenode::mkdirRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::GetListingResponse>* AsyncListingRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::GetListingResponse>* PrepareAsyncListingRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::RenameResponse>* AsyncRenewLeaseRaw(::grpc::ClientContext* context, const ::ClientNamenode::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ClientNamenode::RenameResponse>* PrepareAsyncRenewLeaseRaw(::grpc::ClientContext* context, const ::ClientNamenode::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    ::grpc::Status GetBlockLocation(::grpc::ClientContext* context, const ::GetBlockLocationsRequest& request, ::GetBlockLocationResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::GetBlockLocationResponse>> AsyncGetBlockLocation(::grpc::ClientContext* context, const ::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::GetBlockLocationResponse>>(AsyncGetBlockLocationRaw(context, request, cq));
+    ::grpc::Status GetBlockLocation(::grpc::ClientContext* context, const ::ClientNamenode::GetBlockLocationsRequest& request, ::ClientNamenode::GetBlockLocationResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetBlockLocationResponse>> AsyncGetBlockLocation(::grpc::ClientContext* context, const ::ClientNamenode::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetBlockLocationResponse>>(AsyncGetBlockLocationRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::GetBlockLocationResponse>> PrepareAsyncGetBlockLocation(::grpc::ClientContext* context, const ::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::GetBlockLocationResponse>>(PrepareAsyncGetBlockLocationRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetBlockLocationResponse>> PrepareAsyncGetBlockLocation(::grpc::ClientContext* context, const ::ClientNamenode::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetBlockLocationResponse>>(PrepareAsyncGetBlockLocationRaw(context, request, cq));
     }
-    ::grpc::Status GetServerDefaults(::grpc::ClientContext* context, const ::GetServerDefaultsRequest& request, ::GetServerDefaultsResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::GetServerDefaultsResponse>> AsyncGetServerDefaults(::grpc::ClientContext* context, const ::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::GetServerDefaultsResponse>>(AsyncGetServerDefaultsRaw(context, request, cq));
+    ::grpc::Status GetServerDefaults(::grpc::ClientContext* context, const ::ClientNamenode::GetServerDefaultsRequest& request, ::ClientNamenode::GetServerDefaultsResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetServerDefaultsResponse>> AsyncGetServerDefaults(::grpc::ClientContext* context, const ::ClientNamenode::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetServerDefaultsResponse>>(AsyncGetServerDefaultsRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::GetServerDefaultsResponse>> PrepareAsyncGetServerDefaults(::grpc::ClientContext* context, const ::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::GetServerDefaultsResponse>>(PrepareAsyncGetServerDefaultsRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetServerDefaultsResponse>> PrepareAsyncGetServerDefaults(::grpc::ClientContext* context, const ::ClientNamenode::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetServerDefaultsResponse>>(PrepareAsyncGetServerDefaultsRaw(context, request, cq));
     }
-    ::grpc::Status Create(::grpc::ClientContext* context, const ::CreateRequest& request, ::CreateResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::CreateResponse>> AsyncCreate(::grpc::ClientContext* context, const ::CreateRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::CreateResponse>>(AsyncCreateRaw(context, request, cq));
+    ::grpc::Status Create(::grpc::ClientContext* context, const ::ClientNamenode::CreateRequest& request, ::ClientNamenode::CreateResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::CreateResponse>> AsyncCreate(::grpc::ClientContext* context, const ::ClientNamenode::CreateRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::CreateResponse>>(AsyncCreateRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::CreateResponse>> PrepareAsyncCreate(::grpc::ClientContext* context, const ::CreateRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::CreateResponse>>(PrepareAsyncCreateRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::CreateResponse>> PrepareAsyncCreate(::grpc::ClientContext* context, const ::ClientNamenode::CreateRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::CreateResponse>>(PrepareAsyncCreateRaw(context, request, cq));
     }
-    ::grpc::Status Append(::grpc::ClientContext* context, const ::AppendRequest& request, ::AppendResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::AppendResponse>> AsyncAppend(::grpc::ClientContext* context, const ::AppendRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::AppendResponse>>(AsyncAppendRaw(context, request, cq));
+    ::grpc::Status Append(::grpc::ClientContext* context, const ::ClientNamenode::AppendRequest& request, ::ClientNamenode::AppendResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::AppendResponse>> AsyncAppend(::grpc::ClientContext* context, const ::ClientNamenode::AppendRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::AppendResponse>>(AsyncAppendRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::AppendResponse>> PrepareAsyncAppend(::grpc::ClientContext* context, const ::AppendRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::AppendResponse>>(PrepareAsyncAppendRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::AppendResponse>> PrepareAsyncAppend(::grpc::ClientContext* context, const ::ClientNamenode::AppendRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::AppendResponse>>(PrepareAsyncAppendRaw(context, request, cq));
     }
-    ::grpc::Status Rename(::grpc::ClientContext* context, const ::RenameRequest& request, ::RenameResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::RenameResponse>> AsyncRename(::grpc::ClientContext* context, const ::RenameRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::RenameResponse>>(AsyncRenameRaw(context, request, cq));
+    ::grpc::Status Rename(::grpc::ClientContext* context, const ::ClientNamenode::RenameRequest& request, ::ClientNamenode::RenameResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::RenameResponse>> AsyncRename(::grpc::ClientContext* context, const ::ClientNamenode::RenameRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::RenameResponse>>(AsyncRenameRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::RenameResponse>> PrepareAsyncRename(::grpc::ClientContext* context, const ::RenameRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::RenameResponse>>(PrepareAsyncRenameRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::RenameResponse>> PrepareAsyncRename(::grpc::ClientContext* context, const ::ClientNamenode::RenameRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::RenameResponse>>(PrepareAsyncRenameRaw(context, request, cq));
     }
-    ::grpc::Status Delete(::grpc::ClientContext* context, const ::DeleteRequest& request, ::DeleteResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DeleteResponse>> AsyncDelete(::grpc::ClientContext* context, const ::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DeleteResponse>>(AsyncDeleteRaw(context, request, cq));
+    ::grpc::Status Delete(::grpc::ClientContext* context, const ::ClientNamenode::DeleteRequest& request, ::ClientNamenode::DeleteResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::DeleteResponse>> AsyncDelete(::grpc::ClientContext* context, const ::ClientNamenode::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::DeleteResponse>>(AsyncDeleteRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DeleteResponse>> PrepareAsyncDelete(::grpc::ClientContext* context, const ::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DeleteResponse>>(PrepareAsyncDeleteRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::DeleteResponse>> PrepareAsyncDelete(::grpc::ClientContext* context, const ::ClientNamenode::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::DeleteResponse>>(PrepareAsyncDeleteRaw(context, request, cq));
     }
-    ::grpc::Status SetPermission(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::SetOwnerResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::SetOwnerResponse>> AsyncSetPermission(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::SetOwnerResponse>>(AsyncSetPermissionRaw(context, request, cq));
+    ::grpc::Status SetPermission(::grpc::ClientContext* context, const ::ClientNamenode::SetPermissionRequest& request, ::ClientNamenode::SetPermissionResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::SetPermissionResponse>> AsyncSetPermission(::grpc::ClientContext* context, const ::ClientNamenode::SetPermissionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::SetPermissionResponse>>(AsyncSetPermissionRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::SetOwnerResponse>> PrepareAsyncSetPermission(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::SetOwnerResponse>>(PrepareAsyncSetPermissionRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::SetPermissionResponse>> PrepareAsyncSetPermission(::grpc::ClientContext* context, const ::ClientNamenode::SetPermissionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::SetPermissionResponse>>(PrepareAsyncSetPermissionRaw(context, request, cq));
     }
-    ::grpc::Status SetOwner(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::SetOwnerResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::SetOwnerResponse>> AsyncSetOwner(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::SetOwnerResponse>>(AsyncSetOwnerRaw(context, request, cq));
+    ::grpc::Status SetOwner(::grpc::ClientContext* context, const ::ClientNamenode::SetOwnerRequest& request, ::ClientNamenode::SetOwnerResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::SetOwnerResponse>> AsyncSetOwner(::grpc::ClientContext* context, const ::ClientNamenode::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::SetOwnerResponse>>(AsyncSetOwnerRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::SetOwnerResponse>> PrepareAsyncSetOwner(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::SetOwnerResponse>>(PrepareAsyncSetOwnerRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::SetOwnerResponse>> PrepareAsyncSetOwner(::grpc::ClientContext* context, const ::ClientNamenode::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::SetOwnerResponse>>(PrepareAsyncSetOwnerRaw(context, request, cq));
     }
-    ::grpc::Status mkdir(::grpc::ClientContext* context, const ::mkdirRequest& request, ::mkdirResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mkdirResponse>> Asyncmkdir(::grpc::ClientContext* context, const ::mkdirRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mkdirResponse>>(AsyncmkdirRaw(context, request, cq));
+    ::grpc::Status mkdir(::grpc::ClientContext* context, const ::ClientNamenode::mkdirRequest& request, ::ClientNamenode::mkdirResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::mkdirResponse>> Asyncmkdir(::grpc::ClientContext* context, const ::ClientNamenode::mkdirRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::mkdirResponse>>(AsyncmkdirRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mkdirResponse>> PrepareAsyncmkdir(::grpc::ClientContext* context, const ::mkdirRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mkdirResponse>>(PrepareAsyncmkdirRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::mkdirResponse>> PrepareAsyncmkdir(::grpc::ClientContext* context, const ::ClientNamenode::mkdirRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::mkdirResponse>>(PrepareAsyncmkdirRaw(context, request, cq));
     }
-    ::grpc::Status Listing(::grpc::ClientContext* context, const ::GetListingrRequest& request, ::GetListingResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::GetListingResponse>> AsyncListing(::grpc::ClientContext* context, const ::GetListingrRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::GetListingResponse>>(AsyncListingRaw(context, request, cq));
+    ::grpc::Status Listing(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest& request, ::ClientNamenode::GetListingResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetListingResponse>> AsyncListing(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetListingResponse>>(AsyncListingRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::GetListingResponse>> PrepareAsyncListing(::grpc::ClientContext* context, const ::GetListingrRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::GetListingResponse>>(PrepareAsyncListingRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetListingResponse>> PrepareAsyncListing(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetListingResponse>>(PrepareAsyncListingRaw(context, request, cq));
     }
-    ::grpc::Status RenewLease(::grpc::ClientContext* context, const ::RenewLeaseRequest& request, ::RenameResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::RenameResponse>> AsyncRenewLease(::grpc::ClientContext* context, const ::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::RenameResponse>>(AsyncRenewLeaseRaw(context, request, cq));
+    ::grpc::Status RenewLease(::grpc::ClientContext* context, const ::ClientNamenode::RenewLeaseRequest& request, ::ClientNamenode::RenameResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::RenameResponse>> AsyncRenewLease(::grpc::ClientContext* context, const ::ClientNamenode::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::RenameResponse>>(AsyncRenewLeaseRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::RenameResponse>> PrepareAsyncRenewLease(::grpc::ClientContext* context, const ::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::RenameResponse>>(PrepareAsyncRenewLeaseRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::RenameResponse>> PrepareAsyncRenewLease(::grpc::ClientContext* context, const ::ClientNamenode::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ClientNamenode::RenameResponse>>(PrepareAsyncRenewLeaseRaw(context, request, cq));
     }
     class async final :
       public StubInterface::async_interface {
      public:
-      void GetBlockLocation(::grpc::ClientContext* context, const ::GetBlockLocationsRequest* request, ::GetBlockLocationResponse* response, std::function<void(::grpc::Status)>) override;
-      void GetBlockLocation(::grpc::ClientContext* context, const ::GetBlockLocationsRequest* request, ::GetBlockLocationResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void GetServerDefaults(::grpc::ClientContext* context, const ::GetServerDefaultsRequest* request, ::GetServerDefaultsResponse* response, std::function<void(::grpc::Status)>) override;
-      void GetServerDefaults(::grpc::ClientContext* context, const ::GetServerDefaultsRequest* request, ::GetServerDefaultsResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void Create(::grpc::ClientContext* context, const ::CreateRequest* request, ::CreateResponse* response, std::function<void(::grpc::Status)>) override;
-      void Create(::grpc::ClientContext* context, const ::CreateRequest* request, ::CreateResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void Append(::grpc::ClientContext* context, const ::AppendRequest* request, ::AppendResponse* response, std::function<void(::grpc::Status)>) override;
-      void Append(::grpc::ClientContext* context, const ::AppendRequest* request, ::AppendResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void Rename(::grpc::ClientContext* context, const ::RenameRequest* request, ::RenameResponse* response, std::function<void(::grpc::Status)>) override;
-      void Rename(::grpc::ClientContext* context, const ::RenameRequest* request, ::RenameResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void Delete(::grpc::ClientContext* context, const ::DeleteRequest* request, ::DeleteResponse* response, std::function<void(::grpc::Status)>) override;
-      void Delete(::grpc::ClientContext* context, const ::DeleteRequest* request, ::DeleteResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void SetPermission(::grpc::ClientContext* context, const ::SetOwnerRequest* request, ::SetOwnerResponse* response, std::function<void(::grpc::Status)>) override;
-      void SetPermission(::grpc::ClientContext* context, const ::SetOwnerRequest* request, ::SetOwnerResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void SetOwner(::grpc::ClientContext* context, const ::SetOwnerRequest* request, ::SetOwnerResponse* response, std::function<void(::grpc::Status)>) override;
-      void SetOwner(::grpc::ClientContext* context, const ::SetOwnerRequest* request, ::SetOwnerResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void mkdir(::grpc::ClientContext* context, const ::mkdirRequest* request, ::mkdirResponse* response, std::function<void(::grpc::Status)>) override;
-      void mkdir(::grpc::ClientContext* context, const ::mkdirRequest* request, ::mkdirResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void Listing(::grpc::ClientContext* context, const ::GetListingrRequest* request, ::GetListingResponse* response, std::function<void(::grpc::Status)>) override;
-      void Listing(::grpc::ClientContext* context, const ::GetListingrRequest* request, ::GetListingResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void RenewLease(::grpc::ClientContext* context, const ::RenewLeaseRequest* request, ::RenameResponse* response, std::function<void(::grpc::Status)>) override;
-      void RenewLease(::grpc::ClientContext* context, const ::RenewLeaseRequest* request, ::RenameResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetBlockLocation(::grpc::ClientContext* context, const ::ClientNamenode::GetBlockLocationsRequest* request, ::ClientNamenode::GetBlockLocationResponse* response, std::function<void(::grpc::Status)>) override;
+      void GetBlockLocation(::grpc::ClientContext* context, const ::ClientNamenode::GetBlockLocationsRequest* request, ::ClientNamenode::GetBlockLocationResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetServerDefaults(::grpc::ClientContext* context, const ::ClientNamenode::GetServerDefaultsRequest* request, ::ClientNamenode::GetServerDefaultsResponse* response, std::function<void(::grpc::Status)>) override;
+      void GetServerDefaults(::grpc::ClientContext* context, const ::ClientNamenode::GetServerDefaultsRequest* request, ::ClientNamenode::GetServerDefaultsResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void Create(::grpc::ClientContext* context, const ::ClientNamenode::CreateRequest* request, ::ClientNamenode::CreateResponse* response, std::function<void(::grpc::Status)>) override;
+      void Create(::grpc::ClientContext* context, const ::ClientNamenode::CreateRequest* request, ::ClientNamenode::CreateResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void Append(::grpc::ClientContext* context, const ::ClientNamenode::AppendRequest* request, ::ClientNamenode::AppendResponse* response, std::function<void(::grpc::Status)>) override;
+      void Append(::grpc::ClientContext* context, const ::ClientNamenode::AppendRequest* request, ::ClientNamenode::AppendResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void Rename(::grpc::ClientContext* context, const ::ClientNamenode::RenameRequest* request, ::ClientNamenode::RenameResponse* response, std::function<void(::grpc::Status)>) override;
+      void Rename(::grpc::ClientContext* context, const ::ClientNamenode::RenameRequest* request, ::ClientNamenode::RenameResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void Delete(::grpc::ClientContext* context, const ::ClientNamenode::DeleteRequest* request, ::ClientNamenode::DeleteResponse* response, std::function<void(::grpc::Status)>) override;
+      void Delete(::grpc::ClientContext* context, const ::ClientNamenode::DeleteRequest* request, ::ClientNamenode::DeleteResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void SetPermission(::grpc::ClientContext* context, const ::ClientNamenode::SetPermissionRequest* request, ::ClientNamenode::SetPermissionResponse* response, std::function<void(::grpc::Status)>) override;
+      void SetPermission(::grpc::ClientContext* context, const ::ClientNamenode::SetPermissionRequest* request, ::ClientNamenode::SetPermissionResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void SetOwner(::grpc::ClientContext* context, const ::ClientNamenode::SetOwnerRequest* request, ::ClientNamenode::SetOwnerResponse* response, std::function<void(::grpc::Status)>) override;
+      void SetOwner(::grpc::ClientContext* context, const ::ClientNamenode::SetOwnerRequest* request, ::ClientNamenode::SetOwnerResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void mkdir(::grpc::ClientContext* context, const ::ClientNamenode::mkdirRequest* request, ::ClientNamenode::mkdirResponse* response, std::function<void(::grpc::Status)>) override;
+      void mkdir(::grpc::ClientContext* context, const ::ClientNamenode::mkdirRequest* request, ::ClientNamenode::mkdirResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void Listing(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest* request, ::ClientNamenode::GetListingResponse* response, std::function<void(::grpc::Status)>) override;
+      void Listing(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest* request, ::ClientNamenode::GetListingResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void RenewLease(::grpc::ClientContext* context, const ::ClientNamenode::RenewLeaseRequest* request, ::ClientNamenode::RenameResponse* response, std::function<void(::grpc::Status)>) override;
+      void RenewLease(::grpc::ClientContext* context, const ::ClientNamenode::RenewLeaseRequest* request, ::ClientNamenode::RenameResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -284,28 +286,28 @@ class ClientService final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::GetBlockLocationResponse>* AsyncGetBlockLocationRaw(::grpc::ClientContext* context, const ::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::GetBlockLocationResponse>* PrepareAsyncGetBlockLocationRaw(::grpc::ClientContext* context, const ::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::GetServerDefaultsResponse>* AsyncGetServerDefaultsRaw(::grpc::ClientContext* context, const ::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::GetServerDefaultsResponse>* PrepareAsyncGetServerDefaultsRaw(::grpc::ClientContext* context, const ::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::CreateResponse>* AsyncCreateRaw(::grpc::ClientContext* context, const ::CreateRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::CreateResponse>* PrepareAsyncCreateRaw(::grpc::ClientContext* context, const ::CreateRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::AppendResponse>* AsyncAppendRaw(::grpc::ClientContext* context, const ::AppendRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::AppendResponse>* PrepareAsyncAppendRaw(::grpc::ClientContext* context, const ::AppendRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::RenameResponse>* AsyncRenameRaw(::grpc::ClientContext* context, const ::RenameRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::RenameResponse>* PrepareAsyncRenameRaw(::grpc::ClientContext* context, const ::RenameRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::DeleteResponse>* AsyncDeleteRaw(::grpc::ClientContext* context, const ::DeleteRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::DeleteResponse>* PrepareAsyncDeleteRaw(::grpc::ClientContext* context, const ::DeleteRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::SetOwnerResponse>* AsyncSetPermissionRaw(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::SetOwnerResponse>* PrepareAsyncSetPermissionRaw(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::SetOwnerResponse>* AsyncSetOwnerRaw(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::SetOwnerResponse>* PrepareAsyncSetOwnerRaw(::grpc::ClientContext* context, const ::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::mkdirResponse>* AsyncmkdirRaw(::grpc::ClientContext* context, const ::mkdirRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::mkdirResponse>* PrepareAsyncmkdirRaw(::grpc::ClientContext* context, const ::mkdirRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::GetListingResponse>* AsyncListingRaw(::grpc::ClientContext* context, const ::GetListingrRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::GetListingResponse>* PrepareAsyncListingRaw(::grpc::ClientContext* context, const ::GetListingrRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::RenameResponse>* AsyncRenewLeaseRaw(::grpc::ClientContext* context, const ::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::RenameResponse>* PrepareAsyncRenewLeaseRaw(::grpc::ClientContext* context, const ::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetBlockLocationResponse>* AsyncGetBlockLocationRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetBlockLocationResponse>* PrepareAsyncGetBlockLocationRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetBlockLocationsRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetServerDefaultsResponse>* AsyncGetServerDefaultsRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetServerDefaultsResponse>* PrepareAsyncGetServerDefaultsRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetServerDefaultsRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::CreateResponse>* AsyncCreateRaw(::grpc::ClientContext* context, const ::ClientNamenode::CreateRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::CreateResponse>* PrepareAsyncCreateRaw(::grpc::ClientContext* context, const ::ClientNamenode::CreateRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::AppendResponse>* AsyncAppendRaw(::grpc::ClientContext* context, const ::ClientNamenode::AppendRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::AppendResponse>* PrepareAsyncAppendRaw(::grpc::ClientContext* context, const ::ClientNamenode::AppendRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::RenameResponse>* AsyncRenameRaw(::grpc::ClientContext* context, const ::ClientNamenode::RenameRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::RenameResponse>* PrepareAsyncRenameRaw(::grpc::ClientContext* context, const ::ClientNamenode::RenameRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::DeleteResponse>* AsyncDeleteRaw(::grpc::ClientContext* context, const ::ClientNamenode::DeleteRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::DeleteResponse>* PrepareAsyncDeleteRaw(::grpc::ClientContext* context, const ::ClientNamenode::DeleteRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::SetPermissionResponse>* AsyncSetPermissionRaw(::grpc::ClientContext* context, const ::ClientNamenode::SetPermissionRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::SetPermissionResponse>* PrepareAsyncSetPermissionRaw(::grpc::ClientContext* context, const ::ClientNamenode::SetPermissionRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::SetOwnerResponse>* AsyncSetOwnerRaw(::grpc::ClientContext* context, const ::ClientNamenode::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::SetOwnerResponse>* PrepareAsyncSetOwnerRaw(::grpc::ClientContext* context, const ::ClientNamenode::SetOwnerRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::mkdirResponse>* AsyncmkdirRaw(::grpc::ClientContext* context, const ::ClientNamenode::mkdirRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::mkdirResponse>* PrepareAsyncmkdirRaw(::grpc::ClientContext* context, const ::ClientNamenode::mkdirRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetListingResponse>* AsyncListingRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetListingResponse>* PrepareAsyncListingRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::RenameResponse>* AsyncRenewLeaseRaw(::grpc::ClientContext* context, const ::ClientNamenode::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ClientNamenode::RenameResponse>* PrepareAsyncRenewLeaseRaw(::grpc::ClientContext* context, const ::ClientNamenode::RenewLeaseRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GetBlockLocation_;
     const ::grpc::internal::RpcMethod rpcmethod_GetServerDefaults_;
     const ::grpc::internal::RpcMethod rpcmethod_Create_;
@@ -325,17 +327,17 @@ class ClientService final {
     Service();
     virtual ~Service();
     // 文件操作接口
-    virtual ::grpc::Status GetBlockLocation(::grpc::ServerContext* context, const ::GetBlockLocationsRequest* request, ::GetBlockLocationResponse* response);
-    virtual ::grpc::Status GetServerDefaults(::grpc::ServerContext* context, const ::GetServerDefaultsRequest* request, ::GetServerDefaultsResponse* response);
-    virtual ::grpc::Status Create(::grpc::ServerContext* context, const ::CreateRequest* request, ::CreateResponse* response);
-    virtual ::grpc::Status Append(::grpc::ServerContext* context, const ::AppendRequest* request, ::AppendResponse* response);
-    virtual ::grpc::Status Rename(::grpc::ServerContext* context, const ::RenameRequest* request, ::RenameResponse* response);
-    virtual ::grpc::Status Delete(::grpc::ServerContext* context, const ::DeleteRequest* request, ::DeleteResponse* response);
-    virtual ::grpc::Status SetPermission(::grpc::ServerContext* context, const ::SetOwnerRequest* request, ::SetOwnerResponse* response);
-    virtual ::grpc::Status SetOwner(::grpc::ServerContext* context, const ::SetOwnerRequest* request, ::SetOwnerResponse* response);
-    virtual ::grpc::Status mkdir(::grpc::ServerContext* context, const ::mkdirRequest* request, ::mkdirResponse* response);
-    virtual ::grpc::Status Listing(::grpc::ServerContext* context, const ::GetListingrRequest* request, ::GetListingResponse* response);
-    virtual ::grpc::Status RenewLease(::grpc::ServerContext* context, const ::RenewLeaseRequest* request, ::RenameResponse* response);
+    virtual ::grpc::Status GetBlockLocation(::grpc::ServerContext* context, const ::ClientNamenode::GetBlockLocationsRequest* request, ::ClientNamenode::GetBlockLocationResponse* response);
+    virtual ::grpc::Status GetServerDefaults(::grpc::ServerContext* context, const ::ClientNamenode::GetServerDefaultsRequest* request, ::ClientNamenode::GetServerDefaultsResponse* response);
+    virtual ::grpc::Status Create(::grpc::ServerContext* context, const ::ClientNamenode::CreateRequest* request, ::ClientNamenode::CreateResponse* response);
+    virtual ::grpc::Status Append(::grpc::ServerContext* context, const ::ClientNamenode::AppendRequest* request, ::ClientNamenode::AppendResponse* response);
+    virtual ::grpc::Status Rename(::grpc::ServerContext* context, const ::ClientNamenode::RenameRequest* request, ::ClientNamenode::RenameResponse* response);
+    virtual ::grpc::Status Delete(::grpc::ServerContext* context, const ::ClientNamenode::DeleteRequest* request, ::ClientNamenode::DeleteResponse* response);
+    virtual ::grpc::Status SetPermission(::grpc::ServerContext* context, const ::ClientNamenode::SetPermissionRequest* request, ::ClientNamenode::SetPermissionResponse* response);
+    virtual ::grpc::Status SetOwner(::grpc::ServerContext* context, const ::ClientNamenode::SetOwnerRequest* request, ::ClientNamenode::SetOwnerResponse* response);
+    virtual ::grpc::Status mkdir(::grpc::ServerContext* context, const ::ClientNamenode::mkdirRequest* request, ::ClientNamenode::mkdirResponse* response);
+    virtual ::grpc::Status Listing(::grpc::ServerContext* context, const ::ClientNamenode::GetListingrRequest* request, ::ClientNamenode::GetListingResponse* response);
+    virtual ::grpc::Status RenewLease(::grpc::ServerContext* context, const ::ClientNamenode::RenewLeaseRequest* request, ::ClientNamenode::RenameResponse* response);
     // dfs管理接口
   };
   template <class BaseClass>
@@ -350,11 +352,11 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetBlockLocation(::grpc::ServerContext* /*context*/, const ::GetBlockLocationsRequest* /*request*/, ::GetBlockLocationResponse* /*response*/) override {
+    ::grpc::Status GetBlockLocation(::grpc::ServerContext* /*context*/, const ::ClientNamenode::GetBlockLocationsRequest* /*request*/, ::ClientNamenode::GetBlockLocationResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetBlockLocation(::grpc::ServerContext* context, ::GetBlockLocationsRequest* request, ::grpc::ServerAsyncResponseWriter< ::GetBlockLocationResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetBlockLocation(::grpc::ServerContext* context, ::ClientNamenode::GetBlockLocationsRequest* request, ::grpc::ServerAsyncResponseWriter< ::ClientNamenode::GetBlockLocationResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -370,11 +372,11 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetServerDefaults(::grpc::ServerContext* /*context*/, const ::GetServerDefaultsRequest* /*request*/, ::GetServerDefaultsResponse* /*response*/) override {
+    ::grpc::Status GetServerDefaults(::grpc::ServerContext* /*context*/, const ::ClientNamenode::GetServerDefaultsRequest* /*request*/, ::ClientNamenode::GetServerDefaultsResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetServerDefaults(::grpc::ServerContext* context, ::GetServerDefaultsRequest* request, ::grpc::ServerAsyncResponseWriter< ::GetServerDefaultsResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetServerDefaults(::grpc::ServerContext* context, ::ClientNamenode::GetServerDefaultsRequest* request, ::grpc::ServerAsyncResponseWriter< ::ClientNamenode::GetServerDefaultsResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -390,11 +392,11 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::CreateRequest* /*request*/, ::CreateResponse* /*response*/) override {
+    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::ClientNamenode::CreateRequest* /*request*/, ::ClientNamenode::CreateResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestCreate(::grpc::ServerContext* context, ::CreateRequest* request, ::grpc::ServerAsyncResponseWriter< ::CreateResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestCreate(::grpc::ServerContext* context, ::ClientNamenode::CreateRequest* request, ::grpc::ServerAsyncResponseWriter< ::ClientNamenode::CreateResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -410,11 +412,11 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Append(::grpc::ServerContext* /*context*/, const ::AppendRequest* /*request*/, ::AppendResponse* /*response*/) override {
+    ::grpc::Status Append(::grpc::ServerContext* /*context*/, const ::ClientNamenode::AppendRequest* /*request*/, ::ClientNamenode::AppendResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestAppend(::grpc::ServerContext* context, ::AppendRequest* request, ::grpc::ServerAsyncResponseWriter< ::AppendResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestAppend(::grpc::ServerContext* context, ::ClientNamenode::AppendRequest* request, ::grpc::ServerAsyncResponseWriter< ::ClientNamenode::AppendResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -430,11 +432,11 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Rename(::grpc::ServerContext* /*context*/, const ::RenameRequest* /*request*/, ::RenameResponse* /*response*/) override {
+    ::grpc::Status Rename(::grpc::ServerContext* /*context*/, const ::ClientNamenode::RenameRequest* /*request*/, ::ClientNamenode::RenameResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestRename(::grpc::ServerContext* context, ::RenameRequest* request, ::grpc::ServerAsyncResponseWriter< ::RenameResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestRename(::grpc::ServerContext* context, ::ClientNamenode::RenameRequest* request, ::grpc::ServerAsyncResponseWriter< ::ClientNamenode::RenameResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -450,11 +452,11 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::DeleteRequest* /*request*/, ::DeleteResponse* /*response*/) override {
+    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::ClientNamenode::DeleteRequest* /*request*/, ::ClientNamenode::DeleteResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestDelete(::grpc::ServerContext* context, ::DeleteRequest* request, ::grpc::ServerAsyncResponseWriter< ::DeleteResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestDelete(::grpc::ServerContext* context, ::ClientNamenode::DeleteRequest* request, ::grpc::ServerAsyncResponseWriter< ::ClientNamenode::DeleteResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -470,11 +472,11 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetPermission(::grpc::ServerContext* /*context*/, const ::SetOwnerRequest* /*request*/, ::SetOwnerResponse* /*response*/) override {
+    ::grpc::Status SetPermission(::grpc::ServerContext* /*context*/, const ::ClientNamenode::SetPermissionRequest* /*request*/, ::ClientNamenode::SetPermissionResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestSetPermission(::grpc::ServerContext* context, ::SetOwnerRequest* request, ::grpc::ServerAsyncResponseWriter< ::SetOwnerResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestSetPermission(::grpc::ServerContext* context, ::ClientNamenode::SetPermissionRequest* request, ::grpc::ServerAsyncResponseWriter< ::ClientNamenode::SetPermissionResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -490,11 +492,11 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetOwner(::grpc::ServerContext* /*context*/, const ::SetOwnerRequest* /*request*/, ::SetOwnerResponse* /*response*/) override {
+    ::grpc::Status SetOwner(::grpc::ServerContext* /*context*/, const ::ClientNamenode::SetOwnerRequest* /*request*/, ::ClientNamenode::SetOwnerResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestSetOwner(::grpc::ServerContext* context, ::SetOwnerRequest* request, ::grpc::ServerAsyncResponseWriter< ::SetOwnerResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestSetOwner(::grpc::ServerContext* context, ::ClientNamenode::SetOwnerRequest* request, ::grpc::ServerAsyncResponseWriter< ::ClientNamenode::SetOwnerResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -510,11 +512,11 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status mkdir(::grpc::ServerContext* /*context*/, const ::mkdirRequest* /*request*/, ::mkdirResponse* /*response*/) override {
+    ::grpc::Status mkdir(::grpc::ServerContext* /*context*/, const ::ClientNamenode::mkdirRequest* /*request*/, ::ClientNamenode::mkdirResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void Requestmkdir(::grpc::ServerContext* context, ::mkdirRequest* request, ::grpc::ServerAsyncResponseWriter< ::mkdirResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void Requestmkdir(::grpc::ServerContext* context, ::ClientNamenode::mkdirRequest* request, ::grpc::ServerAsyncResponseWriter< ::ClientNamenode::mkdirResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -530,11 +532,11 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Listing(::grpc::ServerContext* /*context*/, const ::GetListingrRequest* /*request*/, ::GetListingResponse* /*response*/) override {
+    ::grpc::Status Listing(::grpc::ServerContext* /*context*/, const ::ClientNamenode::GetListingrRequest* /*request*/, ::ClientNamenode::GetListingResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestListing(::grpc::ServerContext* context, ::GetListingrRequest* request, ::grpc::ServerAsyncResponseWriter< ::GetListingResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestListing(::grpc::ServerContext* context, ::ClientNamenode::GetListingrRequest* request, ::grpc::ServerAsyncResponseWriter< ::ClientNamenode::GetListingResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -550,11 +552,11 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RenewLease(::grpc::ServerContext* /*context*/, const ::RenewLeaseRequest* /*request*/, ::RenameResponse* /*response*/) override {
+    ::grpc::Status RenewLease(::grpc::ServerContext* /*context*/, const ::ClientNamenode::RenewLeaseRequest* /*request*/, ::ClientNamenode::RenameResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestRenewLease(::grpc::ServerContext* context, ::RenewLeaseRequest* request, ::grpc::ServerAsyncResponseWriter< ::RenameResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestRenewLease(::grpc::ServerContext* context, ::ClientNamenode::RenewLeaseRequest* request, ::grpc::ServerAsyncResponseWriter< ::ClientNamenode::RenameResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -566,25 +568,25 @@ class ClientService final {
    public:
     WithCallbackMethod_GetBlockLocation() {
       ::grpc::Service::MarkMethodCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::GetBlockLocationsRequest, ::GetBlockLocationResponse>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::GetBlockLocationsRequest, ::ClientNamenode::GetBlockLocationResponse>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::GetBlockLocationsRequest* request, ::GetBlockLocationResponse* response) { return this->GetBlockLocation(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ClientNamenode::GetBlockLocationsRequest* request, ::ClientNamenode::GetBlockLocationResponse* response) { return this->GetBlockLocation(context, request, response); }));}
     void SetMessageAllocatorFor_GetBlockLocation(
-        ::grpc::MessageAllocator< ::GetBlockLocationsRequest, ::GetBlockLocationResponse>* allocator) {
+        ::grpc::MessageAllocator< ::ClientNamenode::GetBlockLocationsRequest, ::ClientNamenode::GetBlockLocationResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::GetBlockLocationsRequest, ::GetBlockLocationResponse>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::GetBlockLocationsRequest, ::ClientNamenode::GetBlockLocationResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_GetBlockLocation() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetBlockLocation(::grpc::ServerContext* /*context*/, const ::GetBlockLocationsRequest* /*request*/, ::GetBlockLocationResponse* /*response*/) override {
+    ::grpc::Status GetBlockLocation(::grpc::ServerContext* /*context*/, const ::ClientNamenode::GetBlockLocationsRequest* /*request*/, ::ClientNamenode::GetBlockLocationResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* GetBlockLocation(
-      ::grpc::CallbackServerContext* /*context*/, const ::GetBlockLocationsRequest* /*request*/, ::GetBlockLocationResponse* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ClientNamenode::GetBlockLocationsRequest* /*request*/, ::ClientNamenode::GetBlockLocationResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_GetServerDefaults : public BaseClass {
@@ -593,25 +595,25 @@ class ClientService final {
    public:
     WithCallbackMethod_GetServerDefaults() {
       ::grpc::Service::MarkMethodCallback(1,
-          new ::grpc::internal::CallbackUnaryHandler< ::GetServerDefaultsRequest, ::GetServerDefaultsResponse>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::GetServerDefaultsRequest, ::ClientNamenode::GetServerDefaultsResponse>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::GetServerDefaultsRequest* request, ::GetServerDefaultsResponse* response) { return this->GetServerDefaults(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ClientNamenode::GetServerDefaultsRequest* request, ::ClientNamenode::GetServerDefaultsResponse* response) { return this->GetServerDefaults(context, request, response); }));}
     void SetMessageAllocatorFor_GetServerDefaults(
-        ::grpc::MessageAllocator< ::GetServerDefaultsRequest, ::GetServerDefaultsResponse>* allocator) {
+        ::grpc::MessageAllocator< ::ClientNamenode::GetServerDefaultsRequest, ::ClientNamenode::GetServerDefaultsResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::GetServerDefaultsRequest, ::GetServerDefaultsResponse>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::GetServerDefaultsRequest, ::ClientNamenode::GetServerDefaultsResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_GetServerDefaults() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetServerDefaults(::grpc::ServerContext* /*context*/, const ::GetServerDefaultsRequest* /*request*/, ::GetServerDefaultsResponse* /*response*/) override {
+    ::grpc::Status GetServerDefaults(::grpc::ServerContext* /*context*/, const ::ClientNamenode::GetServerDefaultsRequest* /*request*/, ::ClientNamenode::GetServerDefaultsResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* GetServerDefaults(
-      ::grpc::CallbackServerContext* /*context*/, const ::GetServerDefaultsRequest* /*request*/, ::GetServerDefaultsResponse* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ClientNamenode::GetServerDefaultsRequest* /*request*/, ::ClientNamenode::GetServerDefaultsResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_Create : public BaseClass {
@@ -620,25 +622,25 @@ class ClientService final {
    public:
     WithCallbackMethod_Create() {
       ::grpc::Service::MarkMethodCallback(2,
-          new ::grpc::internal::CallbackUnaryHandler< ::CreateRequest, ::CreateResponse>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::CreateRequest, ::ClientNamenode::CreateResponse>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::CreateRequest* request, ::CreateResponse* response) { return this->Create(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ClientNamenode::CreateRequest* request, ::ClientNamenode::CreateResponse* response) { return this->Create(context, request, response); }));}
     void SetMessageAllocatorFor_Create(
-        ::grpc::MessageAllocator< ::CreateRequest, ::CreateResponse>* allocator) {
+        ::grpc::MessageAllocator< ::ClientNamenode::CreateRequest, ::ClientNamenode::CreateResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::CreateRequest, ::CreateResponse>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::CreateRequest, ::ClientNamenode::CreateResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_Create() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::CreateRequest* /*request*/, ::CreateResponse* /*response*/) override {
+    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::ClientNamenode::CreateRequest* /*request*/, ::ClientNamenode::CreateResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* Create(
-      ::grpc::CallbackServerContext* /*context*/, const ::CreateRequest* /*request*/, ::CreateResponse* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ClientNamenode::CreateRequest* /*request*/, ::ClientNamenode::CreateResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_Append : public BaseClass {
@@ -647,25 +649,25 @@ class ClientService final {
    public:
     WithCallbackMethod_Append() {
       ::grpc::Service::MarkMethodCallback(3,
-          new ::grpc::internal::CallbackUnaryHandler< ::AppendRequest, ::AppendResponse>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::AppendRequest, ::ClientNamenode::AppendResponse>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::AppendRequest* request, ::AppendResponse* response) { return this->Append(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ClientNamenode::AppendRequest* request, ::ClientNamenode::AppendResponse* response) { return this->Append(context, request, response); }));}
     void SetMessageAllocatorFor_Append(
-        ::grpc::MessageAllocator< ::AppendRequest, ::AppendResponse>* allocator) {
+        ::grpc::MessageAllocator< ::ClientNamenode::AppendRequest, ::ClientNamenode::AppendResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::AppendRequest, ::AppendResponse>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::AppendRequest, ::ClientNamenode::AppendResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_Append() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Append(::grpc::ServerContext* /*context*/, const ::AppendRequest* /*request*/, ::AppendResponse* /*response*/) override {
+    ::grpc::Status Append(::grpc::ServerContext* /*context*/, const ::ClientNamenode::AppendRequest* /*request*/, ::ClientNamenode::AppendResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* Append(
-      ::grpc::CallbackServerContext* /*context*/, const ::AppendRequest* /*request*/, ::AppendResponse* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ClientNamenode::AppendRequest* /*request*/, ::ClientNamenode::AppendResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_Rename : public BaseClass {
@@ -674,25 +676,25 @@ class ClientService final {
    public:
     WithCallbackMethod_Rename() {
       ::grpc::Service::MarkMethodCallback(4,
-          new ::grpc::internal::CallbackUnaryHandler< ::RenameRequest, ::RenameResponse>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::RenameRequest, ::ClientNamenode::RenameResponse>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::RenameRequest* request, ::RenameResponse* response) { return this->Rename(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ClientNamenode::RenameRequest* request, ::ClientNamenode::RenameResponse* response) { return this->Rename(context, request, response); }));}
     void SetMessageAllocatorFor_Rename(
-        ::grpc::MessageAllocator< ::RenameRequest, ::RenameResponse>* allocator) {
+        ::grpc::MessageAllocator< ::ClientNamenode::RenameRequest, ::ClientNamenode::RenameResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::RenameRequest, ::RenameResponse>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::RenameRequest, ::ClientNamenode::RenameResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_Rename() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Rename(::grpc::ServerContext* /*context*/, const ::RenameRequest* /*request*/, ::RenameResponse* /*response*/) override {
+    ::grpc::Status Rename(::grpc::ServerContext* /*context*/, const ::ClientNamenode::RenameRequest* /*request*/, ::ClientNamenode::RenameResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* Rename(
-      ::grpc::CallbackServerContext* /*context*/, const ::RenameRequest* /*request*/, ::RenameResponse* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ClientNamenode::RenameRequest* /*request*/, ::ClientNamenode::RenameResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_Delete : public BaseClass {
@@ -701,25 +703,25 @@ class ClientService final {
    public:
     WithCallbackMethod_Delete() {
       ::grpc::Service::MarkMethodCallback(5,
-          new ::grpc::internal::CallbackUnaryHandler< ::DeleteRequest, ::DeleteResponse>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::DeleteRequest, ::ClientNamenode::DeleteResponse>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::DeleteRequest* request, ::DeleteResponse* response) { return this->Delete(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ClientNamenode::DeleteRequest* request, ::ClientNamenode::DeleteResponse* response) { return this->Delete(context, request, response); }));}
     void SetMessageAllocatorFor_Delete(
-        ::grpc::MessageAllocator< ::DeleteRequest, ::DeleteResponse>* allocator) {
+        ::grpc::MessageAllocator< ::ClientNamenode::DeleteRequest, ::ClientNamenode::DeleteResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::DeleteRequest, ::DeleteResponse>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::DeleteRequest, ::ClientNamenode::DeleteResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_Delete() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::DeleteRequest* /*request*/, ::DeleteResponse* /*response*/) override {
+    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::ClientNamenode::DeleteRequest* /*request*/, ::ClientNamenode::DeleteResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* Delete(
-      ::grpc::CallbackServerContext* /*context*/, const ::DeleteRequest* /*request*/, ::DeleteResponse* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ClientNamenode::DeleteRequest* /*request*/, ::ClientNamenode::DeleteResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_SetPermission : public BaseClass {
@@ -728,25 +730,25 @@ class ClientService final {
    public:
     WithCallbackMethod_SetPermission() {
       ::grpc::Service::MarkMethodCallback(6,
-          new ::grpc::internal::CallbackUnaryHandler< ::SetOwnerRequest, ::SetOwnerResponse>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::SetPermissionRequest, ::ClientNamenode::SetPermissionResponse>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::SetOwnerRequest* request, ::SetOwnerResponse* response) { return this->SetPermission(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ClientNamenode::SetPermissionRequest* request, ::ClientNamenode::SetPermissionResponse* response) { return this->SetPermission(context, request, response); }));}
     void SetMessageAllocatorFor_SetPermission(
-        ::grpc::MessageAllocator< ::SetOwnerRequest, ::SetOwnerResponse>* allocator) {
+        ::grpc::MessageAllocator< ::ClientNamenode::SetPermissionRequest, ::ClientNamenode::SetPermissionResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::SetOwnerRequest, ::SetOwnerResponse>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::SetPermissionRequest, ::ClientNamenode::SetPermissionResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_SetPermission() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetPermission(::grpc::ServerContext* /*context*/, const ::SetOwnerRequest* /*request*/, ::SetOwnerResponse* /*response*/) override {
+    ::grpc::Status SetPermission(::grpc::ServerContext* /*context*/, const ::ClientNamenode::SetPermissionRequest* /*request*/, ::ClientNamenode::SetPermissionResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* SetPermission(
-      ::grpc::CallbackServerContext* /*context*/, const ::SetOwnerRequest* /*request*/, ::SetOwnerResponse* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ClientNamenode::SetPermissionRequest* /*request*/, ::ClientNamenode::SetPermissionResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_SetOwner : public BaseClass {
@@ -755,25 +757,25 @@ class ClientService final {
    public:
     WithCallbackMethod_SetOwner() {
       ::grpc::Service::MarkMethodCallback(7,
-          new ::grpc::internal::CallbackUnaryHandler< ::SetOwnerRequest, ::SetOwnerResponse>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::SetOwnerRequest, ::ClientNamenode::SetOwnerResponse>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::SetOwnerRequest* request, ::SetOwnerResponse* response) { return this->SetOwner(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ClientNamenode::SetOwnerRequest* request, ::ClientNamenode::SetOwnerResponse* response) { return this->SetOwner(context, request, response); }));}
     void SetMessageAllocatorFor_SetOwner(
-        ::grpc::MessageAllocator< ::SetOwnerRequest, ::SetOwnerResponse>* allocator) {
+        ::grpc::MessageAllocator< ::ClientNamenode::SetOwnerRequest, ::ClientNamenode::SetOwnerResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::SetOwnerRequest, ::SetOwnerResponse>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::SetOwnerRequest, ::ClientNamenode::SetOwnerResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_SetOwner() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetOwner(::grpc::ServerContext* /*context*/, const ::SetOwnerRequest* /*request*/, ::SetOwnerResponse* /*response*/) override {
+    ::grpc::Status SetOwner(::grpc::ServerContext* /*context*/, const ::ClientNamenode::SetOwnerRequest* /*request*/, ::ClientNamenode::SetOwnerResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* SetOwner(
-      ::grpc::CallbackServerContext* /*context*/, const ::SetOwnerRequest* /*request*/, ::SetOwnerResponse* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ClientNamenode::SetOwnerRequest* /*request*/, ::ClientNamenode::SetOwnerResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_mkdir : public BaseClass {
@@ -782,25 +784,25 @@ class ClientService final {
    public:
     WithCallbackMethod_mkdir() {
       ::grpc::Service::MarkMethodCallback(8,
-          new ::grpc::internal::CallbackUnaryHandler< ::mkdirRequest, ::mkdirResponse>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::mkdirRequest, ::ClientNamenode::mkdirResponse>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::mkdirRequest* request, ::mkdirResponse* response) { return this->mkdir(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ClientNamenode::mkdirRequest* request, ::ClientNamenode::mkdirResponse* response) { return this->mkdir(context, request, response); }));}
     void SetMessageAllocatorFor_mkdir(
-        ::grpc::MessageAllocator< ::mkdirRequest, ::mkdirResponse>* allocator) {
+        ::grpc::MessageAllocator< ::ClientNamenode::mkdirRequest, ::ClientNamenode::mkdirResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::mkdirRequest, ::mkdirResponse>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::mkdirRequest, ::ClientNamenode::mkdirResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_mkdir() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status mkdir(::grpc::ServerContext* /*context*/, const ::mkdirRequest* /*request*/, ::mkdirResponse* /*response*/) override {
+    ::grpc::Status mkdir(::grpc::ServerContext* /*context*/, const ::ClientNamenode::mkdirRequest* /*request*/, ::ClientNamenode::mkdirResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* mkdir(
-      ::grpc::CallbackServerContext* /*context*/, const ::mkdirRequest* /*request*/, ::mkdirResponse* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ClientNamenode::mkdirRequest* /*request*/, ::ClientNamenode::mkdirResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_Listing : public BaseClass {
@@ -809,25 +811,25 @@ class ClientService final {
    public:
     WithCallbackMethod_Listing() {
       ::grpc::Service::MarkMethodCallback(9,
-          new ::grpc::internal::CallbackUnaryHandler< ::GetListingrRequest, ::GetListingResponse>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::GetListingrRequest, ::ClientNamenode::GetListingResponse>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::GetListingrRequest* request, ::GetListingResponse* response) { return this->Listing(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ClientNamenode::GetListingrRequest* request, ::ClientNamenode::GetListingResponse* response) { return this->Listing(context, request, response); }));}
     void SetMessageAllocatorFor_Listing(
-        ::grpc::MessageAllocator< ::GetListingrRequest, ::GetListingResponse>* allocator) {
+        ::grpc::MessageAllocator< ::ClientNamenode::GetListingrRequest, ::ClientNamenode::GetListingResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::GetListingrRequest, ::GetListingResponse>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::GetListingrRequest, ::ClientNamenode::GetListingResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_Listing() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Listing(::grpc::ServerContext* /*context*/, const ::GetListingrRequest* /*request*/, ::GetListingResponse* /*response*/) override {
+    ::grpc::Status Listing(::grpc::ServerContext* /*context*/, const ::ClientNamenode::GetListingrRequest* /*request*/, ::ClientNamenode::GetListingResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* Listing(
-      ::grpc::CallbackServerContext* /*context*/, const ::GetListingrRequest* /*request*/, ::GetListingResponse* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ClientNamenode::GetListingrRequest* /*request*/, ::ClientNamenode::GetListingResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_RenewLease : public BaseClass {
@@ -836,25 +838,25 @@ class ClientService final {
    public:
     WithCallbackMethod_RenewLease() {
       ::grpc::Service::MarkMethodCallback(10,
-          new ::grpc::internal::CallbackUnaryHandler< ::RenewLeaseRequest, ::RenameResponse>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::RenewLeaseRequest, ::ClientNamenode::RenameResponse>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::RenewLeaseRequest* request, ::RenameResponse* response) { return this->RenewLease(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ClientNamenode::RenewLeaseRequest* request, ::ClientNamenode::RenameResponse* response) { return this->RenewLease(context, request, response); }));}
     void SetMessageAllocatorFor_RenewLease(
-        ::grpc::MessageAllocator< ::RenewLeaseRequest, ::RenameResponse>* allocator) {
+        ::grpc::MessageAllocator< ::ClientNamenode::RenewLeaseRequest, ::ClientNamenode::RenameResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::RenewLeaseRequest, ::RenameResponse>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ClientNamenode::RenewLeaseRequest, ::ClientNamenode::RenameResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_RenewLease() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RenewLease(::grpc::ServerContext* /*context*/, const ::RenewLeaseRequest* /*request*/, ::RenameResponse* /*response*/) override {
+    ::grpc::Status RenewLease(::grpc::ServerContext* /*context*/, const ::ClientNamenode::RenewLeaseRequest* /*request*/, ::ClientNamenode::RenameResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* RenewLease(
-      ::grpc::CallbackServerContext* /*context*/, const ::RenewLeaseRequest* /*request*/, ::RenameResponse* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ClientNamenode::RenewLeaseRequest* /*request*/, ::ClientNamenode::RenameResponse* /*response*/)  { return nullptr; }
   };
   typedef WithCallbackMethod_GetBlockLocation<WithCallbackMethod_GetServerDefaults<WithCallbackMethod_Create<WithCallbackMethod_Append<WithCallbackMethod_Rename<WithCallbackMethod_Delete<WithCallbackMethod_SetPermission<WithCallbackMethod_SetOwner<WithCallbackMethod_mkdir<WithCallbackMethod_Listing<WithCallbackMethod_RenewLease<Service > > > > > > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
@@ -870,7 +872,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetBlockLocation(::grpc::ServerContext* /*context*/, const ::GetBlockLocationsRequest* /*request*/, ::GetBlockLocationResponse* /*response*/) override {
+    ::grpc::Status GetBlockLocation(::grpc::ServerContext* /*context*/, const ::ClientNamenode::GetBlockLocationsRequest* /*request*/, ::ClientNamenode::GetBlockLocationResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -887,7 +889,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetServerDefaults(::grpc::ServerContext* /*context*/, const ::GetServerDefaultsRequest* /*request*/, ::GetServerDefaultsResponse* /*response*/) override {
+    ::grpc::Status GetServerDefaults(::grpc::ServerContext* /*context*/, const ::ClientNamenode::GetServerDefaultsRequest* /*request*/, ::ClientNamenode::GetServerDefaultsResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -904,7 +906,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::CreateRequest* /*request*/, ::CreateResponse* /*response*/) override {
+    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::ClientNamenode::CreateRequest* /*request*/, ::ClientNamenode::CreateResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -921,7 +923,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Append(::grpc::ServerContext* /*context*/, const ::AppendRequest* /*request*/, ::AppendResponse* /*response*/) override {
+    ::grpc::Status Append(::grpc::ServerContext* /*context*/, const ::ClientNamenode::AppendRequest* /*request*/, ::ClientNamenode::AppendResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -938,7 +940,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Rename(::grpc::ServerContext* /*context*/, const ::RenameRequest* /*request*/, ::RenameResponse* /*response*/) override {
+    ::grpc::Status Rename(::grpc::ServerContext* /*context*/, const ::ClientNamenode::RenameRequest* /*request*/, ::ClientNamenode::RenameResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -955,7 +957,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::DeleteRequest* /*request*/, ::DeleteResponse* /*response*/) override {
+    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::ClientNamenode::DeleteRequest* /*request*/, ::ClientNamenode::DeleteResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -972,7 +974,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetPermission(::grpc::ServerContext* /*context*/, const ::SetOwnerRequest* /*request*/, ::SetOwnerResponse* /*response*/) override {
+    ::grpc::Status SetPermission(::grpc::ServerContext* /*context*/, const ::ClientNamenode::SetPermissionRequest* /*request*/, ::ClientNamenode::SetPermissionResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -989,7 +991,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetOwner(::grpc::ServerContext* /*context*/, const ::SetOwnerRequest* /*request*/, ::SetOwnerResponse* /*response*/) override {
+    ::grpc::Status SetOwner(::grpc::ServerContext* /*context*/, const ::ClientNamenode::SetOwnerRequest* /*request*/, ::ClientNamenode::SetOwnerResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1006,7 +1008,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status mkdir(::grpc::ServerContext* /*context*/, const ::mkdirRequest* /*request*/, ::mkdirResponse* /*response*/) override {
+    ::grpc::Status mkdir(::grpc::ServerContext* /*context*/, const ::ClientNamenode::mkdirRequest* /*request*/, ::ClientNamenode::mkdirResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1023,7 +1025,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Listing(::grpc::ServerContext* /*context*/, const ::GetListingrRequest* /*request*/, ::GetListingResponse* /*response*/) override {
+    ::grpc::Status Listing(::grpc::ServerContext* /*context*/, const ::ClientNamenode::GetListingrRequest* /*request*/, ::ClientNamenode::GetListingResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1040,7 +1042,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RenewLease(::grpc::ServerContext* /*context*/, const ::RenewLeaseRequest* /*request*/, ::RenameResponse* /*response*/) override {
+    ::grpc::Status RenewLease(::grpc::ServerContext* /*context*/, const ::ClientNamenode::RenewLeaseRequest* /*request*/, ::ClientNamenode::RenameResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1057,7 +1059,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetBlockLocation(::grpc::ServerContext* /*context*/, const ::GetBlockLocationsRequest* /*request*/, ::GetBlockLocationResponse* /*response*/) override {
+    ::grpc::Status GetBlockLocation(::grpc::ServerContext* /*context*/, const ::ClientNamenode::GetBlockLocationsRequest* /*request*/, ::ClientNamenode::GetBlockLocationResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1077,7 +1079,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetServerDefaults(::grpc::ServerContext* /*context*/, const ::GetServerDefaultsRequest* /*request*/, ::GetServerDefaultsResponse* /*response*/) override {
+    ::grpc::Status GetServerDefaults(::grpc::ServerContext* /*context*/, const ::ClientNamenode::GetServerDefaultsRequest* /*request*/, ::ClientNamenode::GetServerDefaultsResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1097,7 +1099,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::CreateRequest* /*request*/, ::CreateResponse* /*response*/) override {
+    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::ClientNamenode::CreateRequest* /*request*/, ::ClientNamenode::CreateResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1117,7 +1119,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Append(::grpc::ServerContext* /*context*/, const ::AppendRequest* /*request*/, ::AppendResponse* /*response*/) override {
+    ::grpc::Status Append(::grpc::ServerContext* /*context*/, const ::ClientNamenode::AppendRequest* /*request*/, ::ClientNamenode::AppendResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1137,7 +1139,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Rename(::grpc::ServerContext* /*context*/, const ::RenameRequest* /*request*/, ::RenameResponse* /*response*/) override {
+    ::grpc::Status Rename(::grpc::ServerContext* /*context*/, const ::ClientNamenode::RenameRequest* /*request*/, ::ClientNamenode::RenameResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1157,7 +1159,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::DeleteRequest* /*request*/, ::DeleteResponse* /*response*/) override {
+    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::ClientNamenode::DeleteRequest* /*request*/, ::ClientNamenode::DeleteResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1177,7 +1179,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetPermission(::grpc::ServerContext* /*context*/, const ::SetOwnerRequest* /*request*/, ::SetOwnerResponse* /*response*/) override {
+    ::grpc::Status SetPermission(::grpc::ServerContext* /*context*/, const ::ClientNamenode::SetPermissionRequest* /*request*/, ::ClientNamenode::SetPermissionResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1197,7 +1199,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetOwner(::grpc::ServerContext* /*context*/, const ::SetOwnerRequest* /*request*/, ::SetOwnerResponse* /*response*/) override {
+    ::grpc::Status SetOwner(::grpc::ServerContext* /*context*/, const ::ClientNamenode::SetOwnerRequest* /*request*/, ::ClientNamenode::SetOwnerResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1217,7 +1219,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status mkdir(::grpc::ServerContext* /*context*/, const ::mkdirRequest* /*request*/, ::mkdirResponse* /*response*/) override {
+    ::grpc::Status mkdir(::grpc::ServerContext* /*context*/, const ::ClientNamenode::mkdirRequest* /*request*/, ::ClientNamenode::mkdirResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1237,7 +1239,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Listing(::grpc::ServerContext* /*context*/, const ::GetListingrRequest* /*request*/, ::GetListingResponse* /*response*/) override {
+    ::grpc::Status Listing(::grpc::ServerContext* /*context*/, const ::ClientNamenode::GetListingrRequest* /*request*/, ::ClientNamenode::GetListingResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1257,7 +1259,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RenewLease(::grpc::ServerContext* /*context*/, const ::RenewLeaseRequest* /*request*/, ::RenameResponse* /*response*/) override {
+    ::grpc::Status RenewLease(::grpc::ServerContext* /*context*/, const ::ClientNamenode::RenewLeaseRequest* /*request*/, ::ClientNamenode::RenameResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1280,7 +1282,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetBlockLocation(::grpc::ServerContext* /*context*/, const ::GetBlockLocationsRequest* /*request*/, ::GetBlockLocationResponse* /*response*/) override {
+    ::grpc::Status GetBlockLocation(::grpc::ServerContext* /*context*/, const ::ClientNamenode::GetBlockLocationsRequest* /*request*/, ::ClientNamenode::GetBlockLocationResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1302,7 +1304,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetServerDefaults(::grpc::ServerContext* /*context*/, const ::GetServerDefaultsRequest* /*request*/, ::GetServerDefaultsResponse* /*response*/) override {
+    ::grpc::Status GetServerDefaults(::grpc::ServerContext* /*context*/, const ::ClientNamenode::GetServerDefaultsRequest* /*request*/, ::ClientNamenode::GetServerDefaultsResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1324,7 +1326,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::CreateRequest* /*request*/, ::CreateResponse* /*response*/) override {
+    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::ClientNamenode::CreateRequest* /*request*/, ::ClientNamenode::CreateResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1346,7 +1348,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Append(::grpc::ServerContext* /*context*/, const ::AppendRequest* /*request*/, ::AppendResponse* /*response*/) override {
+    ::grpc::Status Append(::grpc::ServerContext* /*context*/, const ::ClientNamenode::AppendRequest* /*request*/, ::ClientNamenode::AppendResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1368,7 +1370,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Rename(::grpc::ServerContext* /*context*/, const ::RenameRequest* /*request*/, ::RenameResponse* /*response*/) override {
+    ::grpc::Status Rename(::grpc::ServerContext* /*context*/, const ::ClientNamenode::RenameRequest* /*request*/, ::ClientNamenode::RenameResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1390,7 +1392,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::DeleteRequest* /*request*/, ::DeleteResponse* /*response*/) override {
+    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::ClientNamenode::DeleteRequest* /*request*/, ::ClientNamenode::DeleteResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1412,7 +1414,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetPermission(::grpc::ServerContext* /*context*/, const ::SetOwnerRequest* /*request*/, ::SetOwnerResponse* /*response*/) override {
+    ::grpc::Status SetPermission(::grpc::ServerContext* /*context*/, const ::ClientNamenode::SetPermissionRequest* /*request*/, ::ClientNamenode::SetPermissionResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1434,7 +1436,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetOwner(::grpc::ServerContext* /*context*/, const ::SetOwnerRequest* /*request*/, ::SetOwnerResponse* /*response*/) override {
+    ::grpc::Status SetOwner(::grpc::ServerContext* /*context*/, const ::ClientNamenode::SetOwnerRequest* /*request*/, ::ClientNamenode::SetOwnerResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1456,7 +1458,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status mkdir(::grpc::ServerContext* /*context*/, const ::mkdirRequest* /*request*/, ::mkdirResponse* /*response*/) override {
+    ::grpc::Status mkdir(::grpc::ServerContext* /*context*/, const ::ClientNamenode::mkdirRequest* /*request*/, ::ClientNamenode::mkdirResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1478,7 +1480,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Listing(::grpc::ServerContext* /*context*/, const ::GetListingrRequest* /*request*/, ::GetListingResponse* /*response*/) override {
+    ::grpc::Status Listing(::grpc::ServerContext* /*context*/, const ::ClientNamenode::GetListingrRequest* /*request*/, ::ClientNamenode::GetListingResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1500,7 +1502,7 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RenewLease(::grpc::ServerContext* /*context*/, const ::RenewLeaseRequest* /*request*/, ::RenameResponse* /*response*/) override {
+    ::grpc::Status RenewLease(::grpc::ServerContext* /*context*/, const ::ClientNamenode::RenewLeaseRequest* /*request*/, ::ClientNamenode::RenameResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1515,10 +1517,10 @@ class ClientService final {
     WithStreamedUnaryMethod_GetBlockLocation() {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::GetBlockLocationsRequest, ::GetBlockLocationResponse>(
+          ::ClientNamenode::GetBlockLocationsRequest, ::ClientNamenode::GetBlockLocationResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::GetBlockLocationsRequest, ::GetBlockLocationResponse>* streamer) {
+                     ::ClientNamenode::GetBlockLocationsRequest, ::ClientNamenode::GetBlockLocationResponse>* streamer) {
                        return this->StreamedGetBlockLocation(context,
                          streamer);
                   }));
@@ -1527,12 +1529,12 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetBlockLocation(::grpc::ServerContext* /*context*/, const ::GetBlockLocationsRequest* /*request*/, ::GetBlockLocationResponse* /*response*/) override {
+    ::grpc::Status GetBlockLocation(::grpc::ServerContext* /*context*/, const ::ClientNamenode::GetBlockLocationsRequest* /*request*/, ::ClientNamenode::GetBlockLocationResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetBlockLocation(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::GetBlockLocationsRequest,::GetBlockLocationResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetBlockLocation(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ClientNamenode::GetBlockLocationsRequest,::ClientNamenode::GetBlockLocationResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_GetServerDefaults : public BaseClass {
@@ -1542,10 +1544,10 @@ class ClientService final {
     WithStreamedUnaryMethod_GetServerDefaults() {
       ::grpc::Service::MarkMethodStreamed(1,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::GetServerDefaultsRequest, ::GetServerDefaultsResponse>(
+          ::ClientNamenode::GetServerDefaultsRequest, ::ClientNamenode::GetServerDefaultsResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::GetServerDefaultsRequest, ::GetServerDefaultsResponse>* streamer) {
+                     ::ClientNamenode::GetServerDefaultsRequest, ::ClientNamenode::GetServerDefaultsResponse>* streamer) {
                        return this->StreamedGetServerDefaults(context,
                          streamer);
                   }));
@@ -1554,12 +1556,12 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetServerDefaults(::grpc::ServerContext* /*context*/, const ::GetServerDefaultsRequest* /*request*/, ::GetServerDefaultsResponse* /*response*/) override {
+    ::grpc::Status GetServerDefaults(::grpc::ServerContext* /*context*/, const ::ClientNamenode::GetServerDefaultsRequest* /*request*/, ::ClientNamenode::GetServerDefaultsResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetServerDefaults(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::GetServerDefaultsRequest,::GetServerDefaultsResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetServerDefaults(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ClientNamenode::GetServerDefaultsRequest,::ClientNamenode::GetServerDefaultsResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_Create : public BaseClass {
@@ -1569,10 +1571,10 @@ class ClientService final {
     WithStreamedUnaryMethod_Create() {
       ::grpc::Service::MarkMethodStreamed(2,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::CreateRequest, ::CreateResponse>(
+          ::ClientNamenode::CreateRequest, ::ClientNamenode::CreateResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::CreateRequest, ::CreateResponse>* streamer) {
+                     ::ClientNamenode::CreateRequest, ::ClientNamenode::CreateResponse>* streamer) {
                        return this->StreamedCreate(context,
                          streamer);
                   }));
@@ -1581,12 +1583,12 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::CreateRequest* /*request*/, ::CreateResponse* /*response*/) override {
+    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::ClientNamenode::CreateRequest* /*request*/, ::ClientNamenode::CreateResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedCreate(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::CreateRequest,::CreateResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedCreate(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ClientNamenode::CreateRequest,::ClientNamenode::CreateResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_Append : public BaseClass {
@@ -1596,10 +1598,10 @@ class ClientService final {
     WithStreamedUnaryMethod_Append() {
       ::grpc::Service::MarkMethodStreamed(3,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::AppendRequest, ::AppendResponse>(
+          ::ClientNamenode::AppendRequest, ::ClientNamenode::AppendResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::AppendRequest, ::AppendResponse>* streamer) {
+                     ::ClientNamenode::AppendRequest, ::ClientNamenode::AppendResponse>* streamer) {
                        return this->StreamedAppend(context,
                          streamer);
                   }));
@@ -1608,12 +1610,12 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Append(::grpc::ServerContext* /*context*/, const ::AppendRequest* /*request*/, ::AppendResponse* /*response*/) override {
+    ::grpc::Status Append(::grpc::ServerContext* /*context*/, const ::ClientNamenode::AppendRequest* /*request*/, ::ClientNamenode::AppendResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedAppend(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::AppendRequest,::AppendResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedAppend(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ClientNamenode::AppendRequest,::ClientNamenode::AppendResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_Rename : public BaseClass {
@@ -1623,10 +1625,10 @@ class ClientService final {
     WithStreamedUnaryMethod_Rename() {
       ::grpc::Service::MarkMethodStreamed(4,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::RenameRequest, ::RenameResponse>(
+          ::ClientNamenode::RenameRequest, ::ClientNamenode::RenameResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::RenameRequest, ::RenameResponse>* streamer) {
+                     ::ClientNamenode::RenameRequest, ::ClientNamenode::RenameResponse>* streamer) {
                        return this->StreamedRename(context,
                          streamer);
                   }));
@@ -1635,12 +1637,12 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Rename(::grpc::ServerContext* /*context*/, const ::RenameRequest* /*request*/, ::RenameResponse* /*response*/) override {
+    ::grpc::Status Rename(::grpc::ServerContext* /*context*/, const ::ClientNamenode::RenameRequest* /*request*/, ::ClientNamenode::RenameResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedRename(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::RenameRequest,::RenameResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedRename(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ClientNamenode::RenameRequest,::ClientNamenode::RenameResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_Delete : public BaseClass {
@@ -1650,10 +1652,10 @@ class ClientService final {
     WithStreamedUnaryMethod_Delete() {
       ::grpc::Service::MarkMethodStreamed(5,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::DeleteRequest, ::DeleteResponse>(
+          ::ClientNamenode::DeleteRequest, ::ClientNamenode::DeleteResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::DeleteRequest, ::DeleteResponse>* streamer) {
+                     ::ClientNamenode::DeleteRequest, ::ClientNamenode::DeleteResponse>* streamer) {
                        return this->StreamedDelete(context,
                          streamer);
                   }));
@@ -1662,12 +1664,12 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::DeleteRequest* /*request*/, ::DeleteResponse* /*response*/) override {
+    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::ClientNamenode::DeleteRequest* /*request*/, ::ClientNamenode::DeleteResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedDelete(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::DeleteRequest,::DeleteResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedDelete(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ClientNamenode::DeleteRequest,::ClientNamenode::DeleteResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_SetPermission : public BaseClass {
@@ -1677,10 +1679,10 @@ class ClientService final {
     WithStreamedUnaryMethod_SetPermission() {
       ::grpc::Service::MarkMethodStreamed(6,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::SetOwnerRequest, ::SetOwnerResponse>(
+          ::ClientNamenode::SetPermissionRequest, ::ClientNamenode::SetPermissionResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::SetOwnerRequest, ::SetOwnerResponse>* streamer) {
+                     ::ClientNamenode::SetPermissionRequest, ::ClientNamenode::SetPermissionResponse>* streamer) {
                        return this->StreamedSetPermission(context,
                          streamer);
                   }));
@@ -1689,12 +1691,12 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SetPermission(::grpc::ServerContext* /*context*/, const ::SetOwnerRequest* /*request*/, ::SetOwnerResponse* /*response*/) override {
+    ::grpc::Status SetPermission(::grpc::ServerContext* /*context*/, const ::ClientNamenode::SetPermissionRequest* /*request*/, ::ClientNamenode::SetPermissionResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedSetPermission(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::SetOwnerRequest,::SetOwnerResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedSetPermission(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ClientNamenode::SetPermissionRequest,::ClientNamenode::SetPermissionResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_SetOwner : public BaseClass {
@@ -1704,10 +1706,10 @@ class ClientService final {
     WithStreamedUnaryMethod_SetOwner() {
       ::grpc::Service::MarkMethodStreamed(7,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::SetOwnerRequest, ::SetOwnerResponse>(
+          ::ClientNamenode::SetOwnerRequest, ::ClientNamenode::SetOwnerResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::SetOwnerRequest, ::SetOwnerResponse>* streamer) {
+                     ::ClientNamenode::SetOwnerRequest, ::ClientNamenode::SetOwnerResponse>* streamer) {
                        return this->StreamedSetOwner(context,
                          streamer);
                   }));
@@ -1716,12 +1718,12 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SetOwner(::grpc::ServerContext* /*context*/, const ::SetOwnerRequest* /*request*/, ::SetOwnerResponse* /*response*/) override {
+    ::grpc::Status SetOwner(::grpc::ServerContext* /*context*/, const ::ClientNamenode::SetOwnerRequest* /*request*/, ::ClientNamenode::SetOwnerResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedSetOwner(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::SetOwnerRequest,::SetOwnerResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedSetOwner(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ClientNamenode::SetOwnerRequest,::ClientNamenode::SetOwnerResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_mkdir : public BaseClass {
@@ -1731,10 +1733,10 @@ class ClientService final {
     WithStreamedUnaryMethod_mkdir() {
       ::grpc::Service::MarkMethodStreamed(8,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::mkdirRequest, ::mkdirResponse>(
+          ::ClientNamenode::mkdirRequest, ::ClientNamenode::mkdirResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::mkdirRequest, ::mkdirResponse>* streamer) {
+                     ::ClientNamenode::mkdirRequest, ::ClientNamenode::mkdirResponse>* streamer) {
                        return this->Streamedmkdir(context,
                          streamer);
                   }));
@@ -1743,12 +1745,12 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status mkdir(::grpc::ServerContext* /*context*/, const ::mkdirRequest* /*request*/, ::mkdirResponse* /*response*/) override {
+    ::grpc::Status mkdir(::grpc::ServerContext* /*context*/, const ::ClientNamenode::mkdirRequest* /*request*/, ::ClientNamenode::mkdirResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status Streamedmkdir(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::mkdirRequest,::mkdirResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status Streamedmkdir(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ClientNamenode::mkdirRequest,::ClientNamenode::mkdirResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_Listing : public BaseClass {
@@ -1758,10 +1760,10 @@ class ClientService final {
     WithStreamedUnaryMethod_Listing() {
       ::grpc::Service::MarkMethodStreamed(9,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::GetListingrRequest, ::GetListingResponse>(
+          ::ClientNamenode::GetListingrRequest, ::ClientNamenode::GetListingResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::GetListingrRequest, ::GetListingResponse>* streamer) {
+                     ::ClientNamenode::GetListingrRequest, ::ClientNamenode::GetListingResponse>* streamer) {
                        return this->StreamedListing(context,
                          streamer);
                   }));
@@ -1770,12 +1772,12 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Listing(::grpc::ServerContext* /*context*/, const ::GetListingrRequest* /*request*/, ::GetListingResponse* /*response*/) override {
+    ::grpc::Status Listing(::grpc::ServerContext* /*context*/, const ::ClientNamenode::GetListingrRequest* /*request*/, ::ClientNamenode::GetListingResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedListing(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::GetListingrRequest,::GetListingResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedListing(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ClientNamenode::GetListingrRequest,::ClientNamenode::GetListingResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_RenewLease : public BaseClass {
@@ -1785,10 +1787,10 @@ class ClientService final {
     WithStreamedUnaryMethod_RenewLease() {
       ::grpc::Service::MarkMethodStreamed(10,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::RenewLeaseRequest, ::RenameResponse>(
+          ::ClientNamenode::RenewLeaseRequest, ::ClientNamenode::RenameResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::RenewLeaseRequest, ::RenameResponse>* streamer) {
+                     ::ClientNamenode::RenewLeaseRequest, ::ClientNamenode::RenameResponse>* streamer) {
                        return this->StreamedRenewLease(context,
                          streamer);
                   }));
@@ -1797,17 +1799,19 @@ class ClientService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status RenewLease(::grpc::ServerContext* /*context*/, const ::RenewLeaseRequest* /*request*/, ::RenameResponse* /*response*/) override {
+    ::grpc::Status RenewLease(::grpc::ServerContext* /*context*/, const ::ClientNamenode::RenewLeaseRequest* /*request*/, ::ClientNamenode::RenameResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedRenewLease(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::RenewLeaseRequest,::RenameResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedRenewLease(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ClientNamenode::RenewLeaseRequest,::ClientNamenode::RenameResponse>* server_unary_streamer) = 0;
   };
   typedef WithStreamedUnaryMethod_GetBlockLocation<WithStreamedUnaryMethod_GetServerDefaults<WithStreamedUnaryMethod_Create<WithStreamedUnaryMethod_Append<WithStreamedUnaryMethod_Rename<WithStreamedUnaryMethod_Delete<WithStreamedUnaryMethod_SetPermission<WithStreamedUnaryMethod_SetOwner<WithStreamedUnaryMethod_mkdir<WithStreamedUnaryMethod_Listing<WithStreamedUnaryMethod_RenewLease<Service > > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
   typedef WithStreamedUnaryMethod_GetBlockLocation<WithStreamedUnaryMethod_GetServerDefaults<WithStreamedUnaryMethod_Create<WithStreamedUnaryMethod_Append<WithStreamedUnaryMethod_Rename<WithStreamedUnaryMethod_Delete<WithStreamedUnaryMethod_SetPermission<WithStreamedUnaryMethod_SetOwner<WithStreamedUnaryMethod_mkdir<WithStreamedUnaryMethod_Listing<WithStreamedUnaryMethod_RenewLease<Service > > > > > > > > > > > StreamedService;
 };
+
+}  // namespace ClientNamenode
 
 
 #endif  // GRPC_ClientNamenode_2eproto__INCLUDED

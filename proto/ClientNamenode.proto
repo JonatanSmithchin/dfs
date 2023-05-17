@@ -2,6 +2,8 @@ syntax="proto3";
 
 import "dfs.proto";
 
+package ClientNamenode;
+
 message GetBlockLocationsRequest{
 	 string src = 1;
 	 uint64 offset = 2;
@@ -71,7 +73,7 @@ message SetPermissionRequest{
 	 Permission permission = 2;
 }
 
-message SetPermissionRespose{
+message SetPermissionResponse{
 	//null
 }
 
@@ -123,7 +125,7 @@ service ClientService{
 	rpc Append(AppendRequest) returns (AppendResponse);
 	rpc Rename(RenameRequest) returns (RenameResponse);
 	rpc Delete(DeleteRequest) returns (DeleteResponse);
-	rpc SetPermission(SetOwnerRequest) returns (SetOwnerResponse);
+	rpc SetPermission(SetPermissionRequest) returns (SetPermissionResponse);
 	rpc SetOwner(SetOwnerRequest) returns (SetOwnerResponse);
 	rpc mkdir(mkdirRequest) returns (mkdirResponse);
 	rpc Listing(GetListingrRequest) returns (GetListingResponse);
