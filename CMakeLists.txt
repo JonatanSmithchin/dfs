@@ -13,9 +13,9 @@ project ("dfsForCPP")
 
 include("D://vcpkg//vcpkg//scripts//buildsystems//vcpkg.cmake")
 
-find_package(gRPC CONFIG )
+find_package(gRPC CONFIG REQUIRED)
 
-find_package(protobuf CONFIG )
+find_package(protobuf CONFIG REQUIRED)
 
 add_executable (namenode "src/Server/RPCServer.cpp" "proto/helloworld.grpc.pb.cc" "proto/helloworld.pb.cc")
 
