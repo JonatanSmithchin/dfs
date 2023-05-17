@@ -3,13 +3,13 @@ syntax="proto3";
 import "dfs.proto";
 
 message GetBlockLocationsRequest{
-	required string src = 1;
-	required uint64 offset = 2;
-	required uint64 length = 3;
+	 string src = 1;
+	 uint64 offset = 2;
+	 uint64 length = 3;
 }
 
 message GetBlockLocationResponse{
-	optional LocatedBlocks location = 1;
+	  LocatedBlocks location = 1;
 }
 
 message GetServerDefaultsRequest{
@@ -17,58 +17,58 @@ message GetServerDefaultsRequest{
 }
 
 message GetServerDefaultsResponse{
-	required ServerDefaults erverDefaults = 1;
+	 ServerDefaults erverDefaults = 1;
 }
 //以下为文件系统操作的RPC接口信息
 enum CreateFlag{
-	CREATE = 1;
-	OVERWRITE = 2;
-	APPEND = 3;
+	CREATE = 0;
+	OVERWRITE = 1;
+	APPEND = 2;
 }
 
 message CreateRequest{
-	required string src = 1;
-	required string clientName = 2;
-	required CreateFlag flag = 3;
-	required Permission permission = 4;
-	required bool createParent = 5;//是否在之上创建了父目录
-	required uint64 blockSize = 6;
+	 string src = 1;
+	 string clientName = 2;
+	 CreateFlag flag = 3;
+	 Permission permission = 4;
+	 bool createParent = 5;//是否在之上创建了父目录
+	 uint64 blockSize = 6;
 }
 
 message CreateResponse{
-	optional FileStatus  status = 1;
+	  FileStatus  status = 1;
 }
 
 message AppendRequest{
-	required string src = 1;
-	required string clientName = 2;
+	 string src = 1;
+	 string clientName = 2;
 }
 
 message AppendResponse{
-	optional LocatedBlock block = 1;
+	  LocatedBlock block = 1;
 }
 
 message RenameRequest{
-	required string src = 1;
-	required string dst = 2;
+	 string src = 1;
+	 string dst = 2;
 }
 
 message RenameResponse{
-	required result = 1;
+	 bool result = 1;
 }
 
 message DeleteRequest{
-	required string src = 1;
-	required bool recursive = 2;//是否需要递归删除
+	 string src = 1;
+	 bool recursive = 2;//是否需要递归删除
 }
 
 message DeleteResponse{
-	required bool result = 1;
+	 bool result = 1;
 }
 
 message SetPermissionRequest{
-	required string src = 1;
-	required Permission permission = 2;
+	 string src = 1;
+	 Permission permission = 2;
 }
 
 message SetPermissionRespose{
@@ -76,9 +76,9 @@ message SetPermissionRespose{
 }
 
 message SetOwnerRequest{
-	required string src = 1;
-	optional string username = 2;
-	optional string groupname = 3;
+	 string src = 1;
+	  string username = 2;
+	  string groupname = 3;
 }
 
 message SetOwnerResponse{
@@ -86,27 +86,27 @@ message SetOwnerResponse{
 }
 
 message mkdirRequest{
-	required string src = 1;
-	required Permission permission = 2;
-	required bool createParent = 3;//是否在之上创建了父目录
+	 string src = 1;
+	 Permission permission = 2;
+	 bool createParent = 3;//是否在之上创建了父目录
 }
 
 message mkdirResponse{
-	required bool isSuccess = 1;
+	 bool isSuccess = 1;
 }
 
 message GetListingrRequest{
-	required string src = 1;
-	required bytes startAfter = 2;
-	required bool needLocation = 3;
+	 string src = 1;
+	 bytes startAfter = 2;
+	 bool needLocation = 3;
 }
 
 message GetListingResponse{
-	optional DirestoryListing dirList = 1;
+	  DirectoryListing dirList = 1;
 }
 
 message RenewLeaseRequest{
-	required string ClientName = 1;
+	 string ClientName = 1;
 }
 
 message RenewLeaseResponse{
@@ -119,7 +119,7 @@ service ClientService{
 	//文件操作接口
 	rpc GetBlockLocation(GetBlockLocationsRequest) returns (GetBlockLocationResponse);
 	rpc GetServerDefaults(GetServerDefaultsRequest) returns (GetServerDefaultsResponse);
-	rpc Create(CreateFileRequest) returns (CreateFileResponse);
+	rpc Create(CreateRequest) returns (CreateResponse);
 	rpc Append(AppendRequest) returns (AppendResponse);
 	rpc Rename(RenameRequest) returns (RenameResponse);
 	rpc Delete(DeleteRequest) returns (DeleteResponse);
