@@ -44,7 +44,7 @@ const string &INode::getGroupName() const {
     return groupName;
 }
 
-short INode::getFsPermission() const {
+const FsPermission& INode::getFsPermission() const {
     return fsPermission;
 }
 

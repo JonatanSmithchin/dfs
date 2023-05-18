@@ -8,11 +8,12 @@
 #include "map"
 #include "../NameSystem/NameSystem.h"
 using namespace std;
+class NameSystem;
 class LeaseManager {
 private:
     std::map<string,Lease> leases;
     std::set<Lease> sortedLeases;
-    NameSystem fsnameSystem;
+    NameSystem* nameSystem;
     class Monitor{
     public:
         void run(LeaseManager* leaseManager);

@@ -7,6 +7,7 @@
 
 #include "string"
 #include "ctime"
+#include "../NameSystem/FsPermission.h"
 
 using std::string;
 
@@ -18,7 +19,7 @@ private:
     string fullPathName;
     string userName;
     string groupName;
-    short fsPermission;
+    FsPermission fsPermission;
     time_t modifiedTime;
     time_t accessTime;
 public:
@@ -42,7 +43,7 @@ public:
 
     const string &getGroupName() const;
 
-    short getFsPermission() const;
+    const FsPermission& getFsPermission() const;
 
     time_t getModifiedTime() const;
 

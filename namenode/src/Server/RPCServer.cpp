@@ -1,10 +1,4 @@
-#include<iostream>
-#include<string>
-#include<grpcpp/grpcpp.h>
-#include<string>
-#include"../../../proto/ClientNamenode.grpc.pb.h"
-#include"../../../proto/dfs.pb.h"
-#include"../NameSystem/NameSystem.h"
+#include"RPCServer.h"
 
 using grpc::Server;
 using grpc::ServerBuilder;
@@ -13,62 +7,57 @@ using grpc::Status;
 using std::string;
 using namespace ClientNamenode;
 
-class ClientNamenodeServiceImpl final :public ClientService::Service {
-private:
-	NameSystem nameSystem;
-public:
-	Status getBlockLocation(ServerContext* context, const GetBlockLocationsRequest& request, const GetBlockLocationResponse& response) {
+Status ClientNamenodeServiceImpl::getBlockLocation(ServerContext* context, const GetBlockLocationsRequest& request, GetBlockLocationResponse* response) {
 
-	}
+}
 
-	Status GetServerDefaults(ServerContext* context, const GetServerDefaultsRequest& request, const GetServerDefaultsResponse& response) {
+Status ClientNamenodeServiceImpl::GetServerDefaults(ServerContext* context, const GetServerDefaultsRequest& request, GetServerDefaultsResponse* response) {
 
-	}
+}
 
-	Status Create(ServerContext* context, const CreateRequest& request, const CreateResponse& response) {
-		nameSystem.addFile(request);
-	}
+Status ClientNamenodeServiceImpl::Create(ServerContext* context, const CreateRequest& request, CreateResponse* response) {
+	INode* node =  nameSystem.addFile(request);
+	FileStatus fs;
+	response->set_allocated_status(&fs);
+	return Status::OK;
+}
 
-	Status Append(ServerContext* context, const AppendRequest& request, AppendResponse* response) {
-		BlockInfo* b = nameSystem.appendFile(request);
-		LocatedBlock lb;
-		response->set_allocated_block(&lb);
-		return Status::OK;
-	}
+Status ClientNamenodeServiceImpl::Append(ServerContext* context, const AppendRequest& request, AppendResponse* response) {
+	LocatedBlock* lb = nameSystem.appendFile(request);
+	response->set_allocated_block(lb);
+	return Status::OK;
+}
 
-	Status Rename(ServerContext* context, const RenameRequest& request, const RenameResponse& response) {
+Status ClientNamenodeServiceImpl::Rename(ServerContext* context, const RenameRequest& request, RenameResponse* response) {
+	nameSystem.rename(request);
+}
 
-	}
+Status ClientNamenodeServiceImpl::Delete(ServerContext* context, const DeleteRequest& request, DeleteResponse* response) {
+		
+}
 
-	Status Delete(ServerContext* context, const DeleteRequest& request, const DeleteResponse& response) {
-
-	}
-
-	Status SetOwner(ServerContext* context, const SetOwnerRequest& request,const SetOwnerResponse& response){
+Status ClientNamenodeServiceImpl::SetOwner(ServerContext* context, const SetOwnerRequest& request,SetOwnerResponse* response){
 		
 
-	}
+}
 
-	Status SetPermission(ServerContext* context, const SetPermissionRequest& request, const SetPermissionResponse& response){
-	}
+Status ClientNamenodeServiceImpl::SetPermission(ServerContext* context, const SetPermissionRequest& request, SetPermissionResponse* response){
+}
 
-	Status SetOwner(ServerContext* context, const SetOwnerRequest& request, const SetOwnerResponse& response) {
+Status ClientNamenodeServiceImpl::mkdir(ServerContext* context, const mkdirRequest& request, mkdirResponse* response) {
 
-	}
+}
 
-	Status mkdir(ServerContext* context, const mkdirRequest& request, const mkdirResponse& response) {
+Status ClientNamenodeServiceImpl::Listing(ServerContext* context, const GetListingRequest& request, GetListingResponse* response){
+}
 
-	}
+Status ClientNamenodeServiceImpl::RenewLease(ServerContext* context, const RenewLeaseRequest& request, RenewLeaseResponse* response) {
 
-	Status Listing(ServerContext* context, const GetListingRequest& request, const GetListingResponse& response){
-	}
+}
 
-	Status RenewLease(ServerContext* context, const RenewLeaseRequest& request, const RenewLeaseResponse& response) {
 
-	}
-};
 
-void RunServer() {
+void RPCServer::RunServer() {
 	string server_address("0.0.0.0:4491");
 	ClientNamenodeServiceImpl ClientService;
 

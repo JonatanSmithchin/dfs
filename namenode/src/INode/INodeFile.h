@@ -5,9 +5,9 @@
 #ifndef DFSFORCPP_INODEFILE_H
 #define DFSFORCPP_INODEFILE_H
 #include "INode.h"
-#include "../../Block/BlockInfo.h"
+#include "../../../common/Block/BlockInfo.h"
 
-class INodeFile : INode{
+class INodeFile :public INode{
 private:
     long header;
     BlockInfo blocks[];

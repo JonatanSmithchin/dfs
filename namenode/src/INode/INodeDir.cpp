@@ -4,7 +4,7 @@
 
 #include "INodeDir.h"
 
-bool INodeDir::addChild(INode &child) {
+bool INodeDir::addChild(const INode &child) {
     children.push_back(child);
     return true;
 }
@@ -20,7 +20,7 @@ bool INodeDir::removeChild(const string &childName) {
     return false;
 }
 
-bool INodeDir::replaceChild(INode &child) {
+bool INodeDir::replaceChild(const INode &child) {
     for each (INode * c in children)
     {
         if (child.getName().compare(c->getName) == 0) {

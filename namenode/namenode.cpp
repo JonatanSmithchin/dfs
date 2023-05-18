@@ -7,6 +7,29 @@ using namespace std;
 
 int main()
 {
-	cout << "Hello CMake." << endl;
-	return 0;
+	namenode nn = namenode();
+	nn.join();
+}
+
+void namenode::loadNameSystem() {
+	nameSystem = &NameSystem();
+}
+
+RPCServer* namenode::createRpcServer() {
+
+};
+
+void namenode::initialize()
+{
+	rpcServer = createRpcServer();
+	loadNameSystem();
+}
+
+namenode::namenode()
+{
+	initialize();
+}
+
+void namenode::join()
+{
 }

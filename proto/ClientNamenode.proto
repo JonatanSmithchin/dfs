@@ -97,7 +97,7 @@ message mkdirResponse{
 	 bool isSuccess = 1;
 }
 
-message GetListingrRequest{
+message GetListingRequest{
 	 string src = 1;
 	 bytes startAfter = 2;
 	 bool needLocation = 3;
@@ -128,7 +128,7 @@ service ClientService{
 	rpc SetPermission(SetPermissionRequest) returns (SetPermissionResponse);
 	rpc SetOwner(SetOwnerRequest) returns (SetOwnerResponse);
 	rpc mkdir(mkdirRequest) returns (mkdirResponse);
-	rpc Listing(GetListingrRequest) returns (GetListingResponse);
+	rpc Listing(GetListingRequest) returns (GetListingResponse);
 	rpc RenewLease(RenewLeaseRequest) returns (RenameResponse);
 	//dfs管理接口
 }

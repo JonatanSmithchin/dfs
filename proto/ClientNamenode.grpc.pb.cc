@@ -262,23 +262,23 @@ void ClientService::Stub::async::mkdir(::grpc::ClientContext* context, const ::C
   return result;
 }
 
-::grpc::Status ClientService::Stub::Listing(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest& request, ::ClientNamenode::GetListingResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ClientNamenode::GetListingrRequest, ::ClientNamenode::GetListingResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Listing_, context, request, response);
+::grpc::Status ClientService::Stub::Listing(::grpc::ClientContext* context, const ::ClientNamenode::GetListingRequest& request, ::ClientNamenode::GetListingResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ClientNamenode::GetListingRequest, ::ClientNamenode::GetListingResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Listing_, context, request, response);
 }
 
-void ClientService::Stub::async::Listing(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest* request, ::ClientNamenode::GetListingResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ClientNamenode::GetListingrRequest, ::ClientNamenode::GetListingResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Listing_, context, request, response, std::move(f));
+void ClientService::Stub::async::Listing(::grpc::ClientContext* context, const ::ClientNamenode::GetListingRequest* request, ::ClientNamenode::GetListingResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ClientNamenode::GetListingRequest, ::ClientNamenode::GetListingResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Listing_, context, request, response, std::move(f));
 }
 
-void ClientService::Stub::async::Listing(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest* request, ::ClientNamenode::GetListingResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+void ClientService::Stub::async::Listing(::grpc::ClientContext* context, const ::ClientNamenode::GetListingRequest* request, ::ClientNamenode::GetListingResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Listing_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetListingResponse>* ClientService::Stub::PrepareAsyncListingRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ClientNamenode::GetListingResponse, ::ClientNamenode::GetListingrRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Listing_, context, request);
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetListingResponse>* ClientService::Stub::PrepareAsyncListingRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetListingRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ClientNamenode::GetListingResponse, ::ClientNamenode::GetListingRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Listing_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetListingResponse>* ClientService::Stub::AsyncListingRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetListingrRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::ClientNamenode::GetListingResponse>* ClientService::Stub::AsyncListingRaw(::grpc::ClientContext* context, const ::ClientNamenode::GetListingRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncListingRaw(context, request, cq);
   result->StartCall();
@@ -402,10 +402,10 @@ ClientService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ClientService_method_names[9],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::ClientNamenode::GetListingrRequest, ::ClientNamenode::GetListingResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< ClientService::Service, ::ClientNamenode::GetListingRequest, ::ClientNamenode::GetListingResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](ClientService::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::ClientNamenode::GetListingrRequest* req,
+             const ::ClientNamenode::GetListingRequest* req,
              ::ClientNamenode::GetListingResponse* resp) {
                return service->Listing(ctx, req, resp);
              }, this)));
@@ -487,7 +487,7 @@ ClientService::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status ClientService::Service::Listing(::grpc::ServerContext* context, const ::ClientNamenode::GetListingrRequest* request, ::ClientNamenode::GetListingResponse* response) {
+::grpc::Status ClientService::Service::Listing(::grpc::ServerContext* context, const ::ClientNamenode::GetListingRequest* request, ::ClientNamenode::GetListingResponse* response) {
   (void) context;
   (void) request;
   (void) response;

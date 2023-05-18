@@ -14,11 +14,11 @@ class INodeDir : public INode {
 private:
     vector<INode*> children;
 public:
-    bool addChild(INode &child);
+    bool addChild(const INode& child);
 
     bool removeChild(const string &childName);
 
-    bool replaceChild(INode &child);
+    bool replaceChild(const INode &child);
 
     INode* getChild(const string &childName);
 

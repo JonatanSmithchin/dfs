@@ -33,7 +33,7 @@ bool LeaseManager::checkLeases() {
 		{
 			if (!needSync)
 			{
-				bool completed = fsnameSystem.releaseLease(&oldest,p);
+				bool completed = nameSystem.releaseLease(&oldest,p);
 				needSync = true;
 			}
 			//TODO:判断是否能恢复过期租约，如果不能则添加到删除list中

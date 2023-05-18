@@ -7,7 +7,32 @@
 
 using namespace std;
 
-bool NameSystem::resolvePath(const string& path) {
+
+
+NameSystem:: NameSystem() {
+
+}
+
+bool NameSystem::construceFile(const string& src)
+{
+    INode* parent = findParent(src);
+    if (parent != nullptr) {
+        if (checkPermission(parent->getFsPermission(),FsAction::WRITE)) {
+            auto* dir = dynamic_cast<INodeDir*>(parent);
+            INodeFile *f = new INodeFile();//构造函数
+            dir->addChild(*f);//构建元数据
+            //TODO:选择namenode返回给client
+        }
+    }
+    return false;
+}
+
+bool NameSystem::resolvePath(const string& path)
+{
+    return false;
+}
+
+INode* NameSystem::findParent(const string& path) {
     //分割处理文件路径
     stringstream ss(path);
     char c = '/';
@@ -18,35 +43,57 @@ bool NameSystem::resolvePath(const string& path) {
     }
     //判断是否为Inode child
     INode *node = root;
-    for (int i = 0; i < results.size(); i++) {
+    for (int i = 0; i < results.size()-1; i++) {
         if (node->isDir()) {
             auto *dir = dynamic_cast<INodeDir *>(node);
             INode *child = dir->getChild(results[i]);
             if (child == nullptr) {
-                return false;
+                return nullptr;
             }
             node = child;
         } else {
-            return false;
+            return nullptr;
         }
     }
-    return true;
+    return node;
 }
 
-void NameSystem::addFile(INode* f) {
-    if(resolvePath(f->getFullPathName())){
-
-    }
+bool NameSystem::checkPermission(FsPermission permission,FsAction op)
+{
+    //解析permission
+    return false;
 }
 
-void NameSystem::appendFile(const string &path) {
-    if (resolvePath(path)) {
-
-    }
+INode* NameSystem::addFile(const CreateRequest& request) {
+    
 }
 
-bool NameSystem::releaseLease(Lease* lease, const string& path)
+LocatedBlock* NameSystem::appendFile(const AppendRequest& request) {
+    LocatedBlock* lb;
+    return lb;
+}
+
+bool NameSystem::releaseLease(const RenewLeaseRequest& request)
 {
 
     return false;
+}
+
+void NameSystem::rename(const RenameRequest& request)
+{
+    const string& dst = request.dst();
+    if (resolvePath(request.src())) {
+
+    }
+    else {
+
+    }
+}
+
+void NameSystem::setOwner(const string& src, const string& username, const string& groupname)
+{
+}
+
+void NameSystem::close()
+{
 }
